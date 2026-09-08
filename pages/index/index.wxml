@@ -7,15 +7,22 @@
     <!-- 轮播图占位 -->
   </view>
 
-  <!-- 功能入口 -->
-  <van-grid column-num="3" border="{{false}}">
-    <van-grid-item icon="description" text="校园动态" url="/pages/index-dynamic/index-dynamic" />
-    <van-grid-item icon="search" text="失物招领" url="/pages/index-lost/index-lost" />
-    <van-grid-item icon="flag-o" text="活动发布" url="/pages/index-activity/index-activity" />
-  </van-grid>
-
-  <!-- 内容列表区域 -->
-  <view class="content-list">
-    <!-- 校园动态列表占位 -->
-  </view>
+  <!-- Tab标签栏 -->
+  <van-tabs active="{{activeTab}}" color="#FF6B35" title-active-color="#FF6B35" bind:change="onTabChange" class="tabs-rounded">
+    <van-tab title="校园动态">
+      <view class="tab-content">
+      
+      </view>
+    </van-tab>
+    <van-tab title="失物招领">
+      <view class="tab-content">
+       
+      </view>
+    </van-tab>
+    <van-tab title="活动发布">
+      <view class="tab-content">
+        
+      </view>
+    </van-tab>
+  </van-tabs>
 </view>

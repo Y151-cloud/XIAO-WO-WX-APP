@@ -1,16 +1,18 @@
-/* 首页样式 */
 .container {
-  padding: 20rpx;
   background-color: #F5F5F5;
   min-height: 100vh;
 }
-
 .banner-section {
-  margin: 20rpx 0;
+  margin: 20rpx 24rpx;
   border-radius: 16rpx;
   overflow: hidden;
 }
-
-.content-list {
-  margin-top: 20rpx;
+.tabs-rounded ::v-deep .van-tabs__wrap {
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin: 0 24rpx;
+}
+.tab-content {
+  padding: 20rpx 24rpx;
+  min-height: 400rpx;
 }
