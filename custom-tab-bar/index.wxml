@@ -1,6 +1,6 @@
 <view class="tab-bar-wrap">
   <van-tabbar active="{{ active }}" active-color="#FF6B35" bind:change="onChange">
-    <van-tabbar-item icon="home-o" url="/pages/index/index">首页</van-tabbar-item>
+    <van-tabbar-item icon="home-o" url="/pages/index/index">动态</van-tabbar-item>
     <van-tabbar-item icon="friends-o" url="/pages/community/community">社区</van-tabbar-item>
     <van-tabbar-item icon="shop-o" url="/pages/market/market">集市</van-tabbar-item>
     <van-tabbar-item icon="apps-o" url="/pages/service/service">服务</van-tabbar-item>
