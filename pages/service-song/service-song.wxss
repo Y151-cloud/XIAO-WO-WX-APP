@@ -1,4 +1,145 @@
-/* 表白点歌样式 */
 .container {
+  background-color: #F5F5F5;
+  min-height: 100vh;
+}
+
+.publish-bar {
+  padding: 24rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.form-card {
+  margin: 0 24rpx 24rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32rpx 24rpx 16rpx;
+  flex-direction: column;
+}
+.form-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #576B95;
+  margin-top: 12rpx;
+}
+.form-btn {
+  padding: 24rpx;
+}
+
+.list-wrap {
+  padding: 0 24rpx 20rpx;
+}
+
+.song-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.song-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+.song-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.nickname {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+.time {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+.song-body {
+  margin-bottom: 16rpx;
+}
+.song-info {
+  display: flex;
+  align-items: center;
+  background: #f8f8fa;
+  border-radius: 12rpx;
   padding: 20rpx;
+  margin-bottom: 12rpx;
+}
+.song-detail {
+  margin-left: 16rpx;
+  display: flex;
+  flex-direction: column;
+}
+.song-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+.song-singer {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+.song-to {
+  margin-bottom: 8rpx;
+}
+.to-label {
+  font-size: 26rpx;
+  color: #999;
+}
+.to-name {
+  font-size: 26rpx;
+  color: #576B95;
+  font-weight: 600;
+}
+.song-content {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+  display: block;
+  margin-top: 8rpx;
+}
+.song-footer {
+  display: flex;
+  align-items: center;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+.action-item {
+  display: flex;
+  align-items: center;
+  margin-right: 48rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.action-item text {
+  margin-left: 8rpx;
+}
+
+.loading-more {
+  display: flex;
+  justify-content: center;
+  padding: 20rpx 0;
+}
+.no-more {
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 24rpx;
+  color: #999;
 }

@@ -1,4 +1,12 @@
 {
-  "navigationBarTitleText": "外卖跑腿",
-  "usingComponents": {}
+  "navigationBarTitleText": "跑腿代拿",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-loading": "@vant/weapp/loading/index"
+  }
 }

@@ -1,3 +1,73 @@
 <view class="container">
-  <!-- 表白点歌页面 -->
+  <view class="publish-bar">
+    <van-button type="primary" round color="#576B95" icon="music-o" bindtap="toggleForm">
+      {{showForm ? '收起' : '发起点歌'}}
+    </van-button>
+  </view>
+
+  <!-- 点歌表单 -->
+  <view class="form-card" wx:if="{{showForm}}">
+    <view class="form-header">
+      <van-icon name="music-o" size="48rpx" color="#576B95" />
+      <text class="form-title">为TA点一首歌</text>
+    </view>
+    <van-cell-group>
+      <van-field label="歌曲名" placeholder="输入歌曲名称" value="{{form.songName}}" data-field="songName" bind:input="onFormInput" />
+      <van-field label="歌手" placeholder="输入歌手名（可选）" value="{{form.singer}}" data-field="singer" bind:input="onFormInput" />
+      <van-field label="送给" placeholder="TA的名字（可选）" value="{{form.toUser}}" data-field="toUser" bind:input="onFormInput" />
+      <van-field label="留言" type="textarea" placeholder="写几句话给TA..." value="{{form.content}}" data-field="content" bind:input="onFormInput" autosize />
+    </van-cell-group>
+    <view class="form-btn">
+      <van-button type="primary" round block color="#576B95" loading="{{submitting}}" bindtap="onSubmit">点歌</van-button>
+    </view>
+  </view>
+
+  <!-- 列表 -->
+  <scroll-view scroll-y style="height: calc(100vh - 120rpx);" bindscrolltolower="onLoadMore" refresher-enabled bindrefresherrefresh="onRefresh" refresher-triggered="{{refreshing}}">
+    <view class="list-wrap">
+      <block wx:if="{{list.length > 0}}">
+        <view class="song-card" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="onItemTap">
+          <view class="song-header">
+            <image class="avatar" src="{{item.userAvatar || '/static/images/default-avatar.png'}}" />
+            <view class="song-meta">
+              <text class="nickname">{{item.userNickname || '匿名用户'}}</text>
+              <text class="time">{{item.createTime}}</text>
+            </view>
+            <van-tag type="primary" size="medium" color="#576B95">点歌</van-tag>
+          </view>
+          <view class="song-body">
+            <view class="song-info">
+              <van-icon name="music-o" size="40rpx" color="#576B95" />
+              <view class="song-detail">
+                <text class="song-name">{{item.songName || item.title}}</text>
+                <text class="song-singer" wx:if="{{item.singer}}">{{item.singer}}</text>
+              </view>
+            </view>
+            <view class="song-to" wx:if="{{item.toUser}}">
+              <text class="to-label">送给：</text>
+              <text class="to-name">{{item.toUser}}</text>
+            </view>
+            <text class="song-content" wx:if="{{item.content}}">{{item.content}}</text>
+          </view>
+          <view class="song-footer">
+            <view class="action-item">
+              <van-icon name="good-job-o" color="#999" size="36rpx" />
+              <text>{{item.likeCount || 0}}</text>
+            </view>
+            <view class="action-item">
+              <van-icon name="chat-o" color="#999" size="36rpx" />
+              <text>{{item.commentCount || 0}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="loading-more" wx:if="{{loading}}">
+          <van-loading size="24">加载中...</van-loading>
+        </view>
+        <view class="no-more" wx:if="{{finished && list.length > 0}}">
+          <text>没有更多了</text>
+        </view>
+      </block>
+      <van-empty wx:if="{{!loading && list.length === 0}}" description="暂无点歌" />
+    </view>
+  </scroll-view>
 </view>

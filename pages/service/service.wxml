@@ -1,14 +1,48 @@
 <view class="container">
-  <!-- 标签栏切换 -->
-  <van-tabs active="{{ activeTab }}" color="#FF6B35" bind:change="onTabChange" class="tabs-rounded">
+  <van-tabs active="{{activeTab}}" color="#FF6B35" title-active-color="#FF6B35" bind:change="onTabChange">
     <van-tab title="外卖跑腿">
-      <!-- 外卖跑腿内容占位 -->
+      <view class="tab-content">
+        <view class="quick-entry" bindtap="onErrandTap">
+          <view class="quick-left">
+            <van-icon name="logistics" size="48rpx" color="#FF6B35" />
+            <view class="quick-info">
+              <text class="quick-title">跑腿代拿</text>
+              <text class="quick-desc">发布跑腿需求，帮你拿快递、买饭</text>
+            </view>
+          </view>
+          <van-button type="primary" size="small" round color="#FF6B35">去发布</van-button>
+        </view>
+      </view>
     </van-tab>
+
     <van-tab title="投票问卷">
-      <!-- 投票问卷内容占位 -->
+      <view class="tab-content">
+        <view class="quick-entry" bindtap="onVoteTap">
+          <view class="quick-left">
+            <van-icon name="bar-chart-o" size="48rpx" color="#07C160" />
+            <view class="quick-info">
+              <text class="quick-title">投票问卷</text>
+              <text class="quick-desc">发起投票，收集大家的意见</text>
+            </view>
+          </view>
+          <van-button type="primary" size="small" round color="#07C160">去创建</van-button>
+        </view>
+      </view>
     </van-tab>
+
     <van-tab title="表白点歌">
-      <!-- 表白点歌内容占位 -->
+      <view class="tab-content">
+        <view class="quick-entry" bindtap="onSongTap">
+          <view class="quick-left">
+            <van-icon name="music-o" size="48rpx" color="#576B95" />
+            <view class="quick-info">
+              <text class="quick-title">表白点歌</text>
+              <text class="quick-desc">为TA点一首歌，传递你的心意</text>
+            </view>
+          </view>
+          <van-button type="primary" size="small" round color="#576B95">去点歌</van-button>
+        </view>
+      </view>
     </van-tab>
   </van-tabs>
 </view>

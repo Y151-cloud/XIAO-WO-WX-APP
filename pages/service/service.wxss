@@ -1,10 +1,38 @@
-/* 服务样式 */
 .container {
   background-color: #F5F5F5;
   min-height: 100vh;
 }
 
-.tabs-rounded ::v-deep .van-tabs__wrap {
+.tab-content {
+  padding: 24rpx;
+  min-height: 300rpx;
+}
+
+.quick-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
   border-radius: 16rpx;
-  overflow: hidden;
+  padding: 32rpx 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.quick-left {
+  display: flex;
+  align-items: center;
+}
+.quick-info {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.quick-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+}
+.quick-desc {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 6rpx;
 }

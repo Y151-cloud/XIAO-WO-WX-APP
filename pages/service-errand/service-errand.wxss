@@ -1,4 +1,110 @@
-/* 外卖跑腿样式 */
 .container {
-  padding: 20rpx;
+  background-color: #F5F5F5;
+  min-height: 100vh;
+}
+
+.publish-bar {
+  padding: 24rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.form-card {
+  margin: 0 24rpx 24rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.form-btn {
+  padding: 24rpx;
+}
+
+.list-wrap {
+  padding: 0 24rpx 20rpx;
+}
+
+.errand-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.errand-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+.errand-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.nickname {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+.time {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+.errand-body {
+  margin-bottom: 16rpx;
+}
+.errand-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 8rpx;
+}
+.errand-content {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.errand-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+.errand-info {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999;
+}
+.errand-info text {
+  margin-left: 8rpx;
+}
+.contact-text {
+  color: #FF6B35;
+  font-weight: 500;
+}
+
+.loading-more {
+  display: flex;
+  justify-content: center;
+  padding: 20rpx 0;
+}
+.no-more {
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 24rpx;
+  color: #999;
 }
