@@ -3,10 +3,18 @@ Page({
     userInfo: {},
     genderText: '未设置',
     showGenderSheet: false,
-    genderActions: [
-      { name: '男', value: 'male' },
-      { name: '女', value: 'female' },
-      { name: '保密', value: 'secret' }
+    genderActions: [{
+        name: '男',
+        value: 'male'
+      },
+      {
+        name: '女',
+        value: 'female'
+      },
+      {
+        name: '保密',
+        value: 'secret'
+      }
     ]
   },
   onLoad() {
@@ -14,7 +22,11 @@ Page({
   },
   loadUserInfo() {
     const userInfo = wx.getStorageSync('userInfo') || {}
-    const genderMap = { male: '男', female: '女', secret: '保密' }
+    const genderMap = {
+      male: '男',
+      female: '女',
+      secret: '保密'
+    }
     this.setData({
       userInfo,
       genderText: genderMap[userInfo.gender] || '未设置'
@@ -25,12 +37,34 @@ Page({
     wx.chooseMedia({
       count: 1,
       mediaType: ['image'],
-      success: (res) => {
-        const avatarUrl = res.tempFiles[0].tempFilePath
-        const userInfo = { ...this.data.userInfo, avatarUrl }
+      success: async (res) => {
+        let avatarUrl
+        try {
+          avatarUrl = await new Promise((resolve, reject) => wx.getFileSystemManager()
+            .saveFile({
+              tempFilePath: res.tempFiles[0].tempFilePath,
+              success: r => resolve(r.savedFilePath),
+              fail: reject
+            }))
+        } catch (e) {
+          wx.showToast({
+            title: "头像保存失败",
+            icon: "none"
+          });
+          return
+        }
+        const userInfo = {
+          ...this.data.userInfo,
+          avatarUrl
+        }
         wx.setStorageSync('userInfo', userInfo)
-        this.setData({ userInfo })
-        wx.showToast({ title: '头像已更新', icon: 'success' })
+        this.setData({
+          userInfo
+        })
+        wx.showToast({
+          title: '头像已更新',
+          icon: 'success'
+        })
       }
     })
   },
@@ -43,24 +77,40 @@ Page({
       content: this.data.userInfo.nickName || '',
       success: (res) => {
         if (res.confirm && res.content) {
-          const userInfo = { ...this.data.userInfo, nickName: res.content }
+          const userInfo = {
+            ...this.data.userInfo,
+            nickName: res.content
+          }
           wx.setStorageSync('userInfo', userInfo)
-          this.setData({ userInfo })
+          this.setData({
+            userInfo
+          })
         }
       }
     })
   },
   // 显示性别选择
   onShowGender() {
-    this.setData({ showGenderSheet: true })
+    this.setData({
+      showGenderSheet: true
+    })
   },
   onCloseGender() {
-    this.setData({ showGenderSheet: false })
+    this.setData({
+      showGenderSheet: false
+    })
   },
   onSelectGender(e) {
     const gender = e.detail.value
-    const genderMap = { male: '男', female: '女', secret: '保密' }
-    const userInfo = { ...this.data.userInfo, gender }
+    const genderMap = {
+      male: '男',
+      female: '女',
+      secret: '保密'
+    }
+    const userInfo = {
+      ...this.data.userInfo,
+      gender
+    }
     wx.setStorageSync('userInfo', userInfo)
     this.setData({
       userInfo,
@@ -77,9 +127,14 @@ Page({
       content: this.data.userInfo.school || '',
       success: (res) => {
         if (res.confirm) {
-          const userInfo = { ...this.data.userInfo, school: res.content }
+          const userInfo = {
+            ...this.data.userInfo,
+            school: res.content
+          }
           wx.setStorageSync('userInfo', userInfo)
-          this.setData({ userInfo })
+          this.setData({
+            userInfo
+          })
         }
       }
     })
@@ -93,9 +148,14 @@ Page({
       content: this.data.userInfo.studentId || '',
       success: (res) => {
         if (res.confirm) {
-          const userInfo = { ...this.data.userInfo, studentId: res.content }
+          const userInfo = {
+            ...this.data.userInfo,
+            studentId: res.content
+          }
           wx.setStorageSync('userInfo', userInfo)
-          this.setData({ userInfo })
+          this.setData({
+            userInfo
+          })
         }
       }
     })
@@ -109,9 +169,14 @@ Page({
       content: this.data.userInfo.signature || '',
       success: (res) => {
         if (res.confirm) {
-          const userInfo = { ...this.data.userInfo, signature: res.content }
+          const userInfo = {
+            ...this.data.userInfo,
+            signature: res.content
+          }
           wx.setStorageSync('userInfo', userInfo)
-          this.setData({ userInfo })
+          this.setData({
+            userInfo
+          })
         }
       }
     })

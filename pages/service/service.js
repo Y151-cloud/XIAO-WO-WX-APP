@@ -1,29 +1,51 @@
+const ui = require('../../utils/ui'),
+  req = require('../../utils/request')
 Page({
   data: {
-    activeTab: 0
+    orders: [],
+    loading: false
   },
-
-  onLoad() {},
-
   onShow() {
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({ active: 3 })
+    ui.syncTab(this, 3);
+    this.load()
+  },
+  async load() {
+    try {
+      const orders = await req.get('/api/v1/orders');
+      this.setData({
+        orders
+      })
+    } catch (e) {
+      ui.error(e)
+    } finally {
+      wx.stopPullDownRefresh()
     }
   },
-
-  onTabChange(e) {
-    this.setData({ activeTab: e.detail.index || e.detail.name })
+  onPullDownRefresh() {
+    this.load()
   },
-
-  onErrandTap() {
-    wx.navigateTo({ url: '/pages/service-errand/service-errand' })
+  errand() {
+    ui.compose('errand')
   },
-
-  onVoteTap() {
-    wx.navigateTo({ url: '/pages/service-vote/service-vote' })
+  vote() {
+    wx.navigateTo({
+      url: '/pages/service-vote/service-vote'
+    })
   },
-
-  onSongTap() {
-    wx.navigateTo({ url: '/pages/service-song/service-song' })
+  song() {
+    ui.compose('song')
+  },
+  openLost() {
+    ui.list('lost', '失物招领')
+  },
+  openOrders() {
+    wx.navigateTo({
+      url: '/pages/help/help?mode=orders'
+    })
+  },
+  help() {
+    wx.navigateTo({
+      url: '/pages/help/help?mode=guide'
+    })
   }
 })

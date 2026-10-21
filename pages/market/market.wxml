@@ -1,20 +1,55 @@
-<view class="container">
-  <!-- 标签栏切换 -->
-  <van-tabs active="{{ activeTab }}" color="#FF6B35" bind:change="onTabChange" class="tabs-rounded">
-    <van-tab title="闲置交易">
-      <!-- 闲置交易内容占位 -->
-    </van-tab>
-    <van-tab title="求购专区">
-      <!-- 求购专区内容占位 -->
-    </van-tab>
-    <van-tab title="学长学姐传承">
-      <!-- 学长学姐传承内容占位 -->
-    </van-tab>
-    <van-tab title="交易评价">
-      <!-- 交易评价内容占位 -->
-    </van-tab>
-    <van-tab title="拼车拼团">
-      <!-- 拼车拼团内容占位 -->
-    </van-tab>
-  </van-tabs>
+<view class="screen tab-screen">
+  <view class="row between">
+    <view>
+      <view class="eyebrow">SECOND HAND, NEW STORIES</view>
+      <view class="page-title market-title">让好物，继续发光。</view>
+    </view>
+    <view class="market-seal">循 环<view class="line-break"></view>好 生 活</view>
+  </view>
+  <view class="page-subtitle">同校好物安心淘，每一件都有新故事</view>
+  <view class="search"><van-icon name="search" size="19" color="#99a78b" />
+    <input placeholder="搜一搜，刚好有你需要的" placeholder-class="search-placeholder" value="{{keyword}}"
+      bindinput="input" bindconfirm="search" confirm-type="search" /><text class="search-button"
+      bindtap="search">搜索</text>
+  </view>
+  <view class="market-banner">
+    <view><text class="market-banner-title">你的闲置，别人的心头好</text><text
+        class="market-banner-note">整理小空间，也让校园更轻盈</text></view>
+    <view class="market-flower">✿</view>
+  </view>
+  <view class="tabs">
+    <view wx:for="{{tabs}}" wx:key="type" class="tab {{active === index ? 'active' : ''}}"
+      data-index="{{index}}" bindtap="changeTab">{{item.name}}</view>
+  </view>
+  <view class="row between market-filter"><text>{{products.length}} 件校园好物</text><text
+      class="market-sort" bindtap="sort">{{sort === 'price' ? '价格从低到高' : '最新上架'}} ↕</text></view>
+  <view wx:if="{{error}}" class="error-box" bindtap="load">{{error}} · 点击重试</view>
+  <view class="product-grid">
+    <view wx:for="{{products}}" wx:key="id" class="product" data-id="{{item.id}}"
+      bindtap="openPost">
+      <view class="product-cover">
+        <image wx:if="{{item.images.length}}" src="{{item.images[0]}}" mode="aspectFill" />
+        <view wx:else class="text-cover"><van-icon
+            name="{{item.type === 'carpool' ? 'logistics' : 'shopping-cart-o'}}"
+            size="42" /><text>{{item.type === 'carpool' ? '一起出发' : '同校求购'}}</text></view><text
+          class="condition">{{item.condition || item.tag}}</text>
+      </view>
+      <view class="product-body">
+        <view class="product-title">{{item.title}}</view>
+        <view class="price-row"><text wx:if="{{item.price}}" class="price"><text class="currency">¥</text>{{item.price}}</text><text wx:else
+            class="price carpool-price">费用 AA</text><text class="original"
+            wx:if="{{item.original}}">¥{{item.original}}</text><text class="want">{{item.likes}} 人想要</text></view>
+        <view class="product-user"><text
+            class="mini-avatar">{{item.avatar}}</text><text>{{item.author}}</text><text
+            class="product-location">{{item.location}}</text></view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!loading && !products.length}}" class="empty">
+    <view class="empty-symbol"><van-icon name="shop-o" size="32" /></view>
+    <view class="empty-title">暂时没有找到这件好物</view>
+    <view class="empty-note">换个关键词，或发布一条求购试试</view>
+  </view>
+  <view class="status">{{loading ? '正在整理校园好物…' : '让闲置流动，让美好接棒'}}</view>
+  <view class="floating-publish" bindtap="publish"><van-icon name="plus" size="17" />发布闲置</view>
 </view>

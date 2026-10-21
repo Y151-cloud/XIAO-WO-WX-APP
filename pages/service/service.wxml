@@ -1,48 +1,57 @@
-<view class="container">
-  <van-tabs active="{{activeTab}}" color="#FF6B35" title-active-color="#FF6B35" bind:change="onTabChange">
-    <van-tab title="外卖跑腿">
-      <view class="tab-content">
-        <view class="quick-entry" bindtap="onErrandTap">
-          <view class="quick-left">
-            <van-icon name="logistics" size="48rpx" color="#FF6B35" />
-            <view class="quick-info">
-              <text class="quick-title">跑腿代拿</text>
-              <text class="quick-desc">发布跑腿需求，帮你拿快递、买饭</text>
-            </view>
-          </view>
-          <van-button type="primary" size="small" round color="#FF6B35">去发布</van-button>
-        </view>
-      </view>
-    </van-tab>
-
-    <van-tab title="投票问卷">
-      <view class="tab-content">
-        <view class="quick-entry" bindtap="onVoteTap">
-          <view class="quick-left">
-            <van-icon name="bar-chart-o" size="48rpx" color="#07C160" />
-            <view class="quick-info">
-              <text class="quick-title">投票问卷</text>
-              <text class="quick-desc">发起投票，收集大家的意见</text>
-            </view>
-          </view>
-          <van-button type="primary" size="small" round color="#07C160">去创建</van-button>
-        </view>
-      </view>
-    </van-tab>
-
-    <van-tab title="表白点歌">
-      <view class="tab-content">
-        <view class="quick-entry" bindtap="onSongTap">
-          <view class="quick-left">
-            <van-icon name="music-o" size="48rpx" color="#576B95" />
-            <view class="quick-info">
-              <text class="quick-title">表白点歌</text>
-              <text class="quick-desc">为TA点一首歌，传递你的心意</text>
-            </view>
-          </view>
-          <van-button type="primary" size="small" round color="#576B95">去点歌</van-button>
-        </view>
-      </view>
-    </van-tab>
-  </van-tabs>
+<view class="screen tab-screen">
+  <view class="eyebrow">LITTLE HELP, BETTER DAYS</view>
+  <view class="page-title service-heading">校园里的小事，<view class="line-break"></view>交给小窝。</view>
+  <view class="page-subtitle">让校园生活，多一点轻松与便利</view>
+  <view class="errand-card" bindtap="errand">
+    <view class="errand-copy">
+      <view class="service-label">CAMPUS EXPRESS</view>
+      <view class="errand-title">忙不过来？<view class="line-break"></view>找同学搭把手</view>
+      <view class="errand-note">取快递 · 带饭 · 校园代办</view>
+      <view class="errand-button">发布跑腿需求 <van-icon name="arrow" size="11" /></view>
+    </view>
+    <image src="/static/art/errand.png" class="errand-art" mode="aspectFill" />
+  </view>
+  <view class="section-head"><text class="section-title">校园便利站</text><text class="eyebrow">FOR YOU</text></view>
+  <view class="service-grid">
+    <view class="service-tile" bindtap="vote">
+      <view class="service-icon green"><van-icon name="bar-chart-o" size="29" /></view>
+      <view class="tile-title">投票问卷</view>
+      <view class="tile-note">每一个想法都有回响</view>
+      <view class="tile-link">去参与 ↗</view>
+    </view>
+    <view class="service-tile" bindtap="song">
+      <view class="service-icon orange"><van-icon name="music-o" size="29" /></view>
+      <view class="tile-title">校园点歌</view>
+      <view class="tile-note">让心意，有专属的旋律</view>
+      <view class="tile-link">点一首歌 ↗</view>
+    </view>
+  </view>
+  <view class="paper convenience">
+    <view class="menu-row" bindtap="openLost">
+      <view class="menu-icon"><van-icon name="search" size="24" /></view>
+      <view class="menu-copy">
+        <view class="menu-label">失物招领</view>
+        <view class="menu-description">你的着急，我们一起记挂</view>
+      </view><van-icon name="arrow" color="#b2bca3" size="13" />
+    </view>
+    <view class="menu-row" bindtap="help">
+      <view class="menu-icon"><van-icon name="question-o" size="24" /></view>
+      <view class="menu-copy">
+        <view class="menu-label">校园使用指南</view>
+        <view class="menu-description">第一次来？从这里认识小窝</view>
+      </view><van-icon name="arrow" color="#b2bca3" size="13" />
+    </view>
+  </view>
+  <view class="section-head"><text class="section-title">我的服务</text>
+    <view class="section-more" bindtap="openOrders">查看全部 <van-icon name="arrow" size="11" /></view>
+  </view>
+  <view class="paper order-preview" wx:if="{{orders.length}}" bindtap="openOrders">
+    <view class="row between"><text>跑腿需求 · {{orders[0].title}}</text><text
+        class="pill orange">{{orders[0].status}}</text></view>
+    <view class="form-note">{{orders[0].location}} → {{orders[0].destination}}</view>
+  </view>
+  <view wx:else class="paper small-empty"><van-icon name="notes-o" size="28"
+      color="#acb59d" /><text>还没有服务记录</text><text class="small-empty-note">有需要的时候，小窝一直都在</text>
+  </view>
+  <view class="service-foot">生活的小小麻烦，我们一起解决。</view>
 </view>

@@ -1,0 +1,108 @@
+<view class="screen help-screen">
+  <block wx:if="{{mode === 'about'}}">
+    <view class="about-logo">窝<view></view>
+    </view>
+    <view class="about-name">校窝</view>
+    <view class="about-slogan">小窝虽小，装得下整个校园。</view>
+    <view class="paper about-card">
+      <view class="eyebrow">OUR LITTLE CAMPUS</view>
+      <view class="about-heading">让校园里的相遇，<view class="line-break"></view>多一点温度。</view>
+      <view class="about-content">记录生活里的新鲜事，找到同频的朋友，让闲置的好物继续发光，也让需要帮助的时刻有人回应。<view
+          class="line-break"></view>
+        <view class="line-break"></view>我们想做的，不过是把校园里的每一份小美好，都装进这个小小的窝里。
+      </view>
+    </view>
+    <view class="status">校窝 v1.1.0 · 校园生活体验版</view>
+  </block>
+  <block wx:elif="{{mode === 'feedback'}}">
+    <view class="eyebrow">LET'S MAKE IT BETTER</view>
+    <view class="page-title help-title">小窝，想听你说。</view>
+    <view class="page-subtitle">一个小建议，也许就能带来大不同</view>
+    <view wx:if="{{submitted}}" class="paper feedback-success"><van-icon name="passed" size="45"
+        color="#a6b58c" />
+      <view class="empty-title">你的建议已经记下啦</view>
+      <view class="form-note">反馈保存在本机，接入服务后才能送达运营同学。</view>
+      <button class="secondary" bindtap="home">回到小窝</button>
+    </view>
+    <block wx:else>
+      <view class="paper form-card">
+        <view class="field-label">你的建议或遇到的问题</view>
+        <textarea class="form-textarea" placeholder="哪里让你觉得不顺手？或者你期待小窝有什么新功能？"
+          placeholder-class="search-placeholder" value="{{content}}" data-field="content"
+          bindinput="field" maxlength="1000" />
+        <view class="field-label">联系方式（选填）</view>
+        <input class="form-input" placeholder="方便的话，留一个能找到你的方式"
+          placeholder-class="search-placeholder" value="{{contact}}" data-field="contact"
+          bindinput="field" maxlength="60" />
+      </view>
+      <button class="primary" loading="{{sending}}" disabled="{{sending}}" bindtap="feedback">记下我的建议
+      </button>
+    </block>
+  </block>
+  <block wx:elif="{{mode === 'orders' || mode === 'songs'}}">
+    <view class="eyebrow">YOUR CAMPUS MOMENTS</view>
+    <view class="page-title help-title">{{title}}</view>
+    <view class="form-note">记录保存在本机，当前不会生成真实服务。</view>
+    <view wx:if="{{loading}}" class="status">正在整理记录…</view>
+    <view wx:for="{{records}}" wx:key="id" class="paper record-card">
+      <view class="row between"><text class="record-title">{{item.title}}</text><text
+          class="pill orange">{{item.status}}</text></view>
+      <view class="record-content">{{item.content}}</view>
+      <view wx:if="{{mode === 'orders'}}" class="record-route">{{item.location}} →
+        {{item.destination}}</view>
+      <view class="row between record-meta"><text>{{item.time}}</text><text
+          wx:if="{{item.price}}">酬金 ¥{{item.price}}</text></view>
+    </view>
+    <view wx:if="{{!loading && !records.length}}" class="empty">
+      <view class="empty-symbol"><van-icon name="notes-o" size="34" /></view>
+      <view class="empty-title">还没有属于你的记录</view>
+      <view class="empty-note">需要的时候，去校园便利站看看吧</view>
+      <view class="secondary" bindtap="service">去服务看看</view>
+    </view>
+  </block>
+  <block wx:elif="{{mode === 'chat'}}">
+    <view class="chat-notice">本地会话预览 · 消息不会发送给对方</view>
+    <view wx:if="{{post}}" class="paper chat-product">
+      <image wx:if="{{post.images.length}}" src="{{post.images[0]}}" mode="aspectFill" />
+      <view>
+        <view class="record-title">{{post.title}}</view><text class="theme-color"
+          wx:if="{{post.price}}">¥{{post.price}}</text>
+      </view>
+    </view>
+    <view class="chat-hint">和同学友善交流，约在校园公共场所见面。</view>
+    <view wx:for="{{chat}}" wx:key="id" class="chat-line">
+      <view class="chat-bubble">{{item.content}}</view>
+      <view class="chat-avatar">我</view>
+    </view>
+    <view class="chat-compose">
+      <input class="form-input" value="{{message}}" data-field="message" bindinput="field"
+        bindconfirm="sendMessage" placeholder="你好，这件好物还在吗？" maxlength="500" confirm-type="send" />
+      <button class="primary" bindtap="sendMessage">发送</button>
+    </view>
+  </block>
+  <block wx:elif="{{mode === 'messages'}}">
+    <view class="eyebrow">A MESSAGE FOR YOU</view>
+    <view class="page-title help-title">来自小窝的问候</view>
+    <view class="paper record-card">
+      <view class="row">
+        <view class="menu-icon"><van-icon name="bell" size="23" /></view>
+        <view class="message-heading">
+          <view class="record-title">欢迎搬进小窝</view>
+          <view class="record-meta">小窝助手 · 系统消息</view>
+        </view>
+      </view>
+      <view class="record-content">嗨，新同学！很高兴在校园里遇见你。发一条动态，认识同频的窝友，或者去集市逛逛吧。小窝里的每一份美好，都有你的一份。</view>
+      <view class="message-link" bindtap="home">去发现校园 ↗</view>
+    </view>
+    <view class="status">暂时没有更多通知</view>
+  </block>
+  <block wx:else>
+    <view class="eyebrow">NICE TO MEET YOU</view>
+    <view class="page-title help-title">和小窝，慢慢熟悉。</view>
+    <view class="page-subtitle">你想知道的校园生活小指南</view>
+    <view class="paper question-card" wx:for="{{questions}}" wx:key="title">
+      <view class="question-title">{{index + 1}}. {{item.title}}</view>
+      <view class="question-answer">{{item.answer}}</view>
+    </view>
+  </block>
+</view>

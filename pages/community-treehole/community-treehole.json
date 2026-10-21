@@ -1,4 +1,8 @@
 {
-  "navigationBarTitleText": "树洞",
-  "usingComponents": {}
+  "navigationBarTitleText": "小小树洞",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-icon": "/vant/icon/index",
+    "post-card": "/components/post-card/index"
+  }
 }

@@ -1,10 +1,57 @@
-/* 社区样式 */
-.container {
-  background-color: #F5F5F5;
-  min-height: 100vh;
+.page-title {
+  margin-top: 18rpx;
+  font-size: 46rpx;
+  line-height: 1.5
 }
 
-.tabs-rounded ::v-deep .van-tabs__wrap {
-  border-radius: 16rpx;
-  overflow: hidden;
+.community-doors {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 32rpx
+}
+
+.door {
+  flex: 1;
+  min-width: 0;
+  height: 264rpx;
+  padding: 26rpx;
+  position: relative;
+  border-radius: 24rpx;
+  display: flex;
+  flex-direction: column
+}
+
+.pink-door {
+  background: #f5e9e4;
+  color: #aa7b6a
+}
+
+.green-door {
+  background: #e9eede;
+  color: #7d9166
+}
+
+.door-symbol {
+  font-size: 74rpx;
+  line-height: 1
+}
+
+.door-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top: 20rpx
+}
+
+.door-note {
+  font-size: 19rpx;
+  opacity: .8;
+  margin-top: 8rpx
+}
+
+.door-arrow {
+  position: absolute;
+  right: 25rpx;
+  top: 24rpx;
+  font-size: 30rpx;
+  opacity: .65
 }

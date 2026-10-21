@@ -1,4 +1,8 @@
 {
-  "navigationBarTitleText": "闲置交易",
-  "usingComponents": {}
+  "navigationBarTitleText": "闲置好物",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-icon": "/vant/icon/index",
+    "post-card": "/components/post-card/index"
+  }
 }

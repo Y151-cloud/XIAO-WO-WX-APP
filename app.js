@@ -1,9 +1,8 @@
 App({
-  onLaunch() {
-    console.log('校窝启动成功')
-  },
+  onLaunch() {},
   globalData: {
     userInfo: null,
-    baseUrl: '' // 接口地址，后续配置
+    baseUrl: require('./config/env').baseUrl,
+    useMock: require('./config/env').useMock
   }
 })

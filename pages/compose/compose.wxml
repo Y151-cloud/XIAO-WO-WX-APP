@@ -1,0 +1,82 @@
+<view class="screen">
+  <view wx:if="{{submitted}}" class="success-view">
+    <view class="success-symbol"><van-icon name="success" size="45" /></view>
+    <view class="success-title">{{submittedTitle}}</view>
+    <view class="form-note">
+      {{isErrand || isSong ? '当前为本地演示，记录仅保存在这台设备，不会送达其他同学。' : '谢谢你的分享，让校园的日常被更多同学看见。'}}</view>
+    <button class="primary" bindtap="viewResult">{{isErrand || isSong ? '查看我的记录' : '看看我的发布'}}
+    </button>
+    <button class="secondary" bindtap="backHome">回到首页</button>
+  </view>
+  <block wx:else>
+    <view class="eyebrow">
+      {{isSong ? 'SAY IT WITH A SONG' : isErrand ? 'A LITTLE HELP GOES A LONG WAY' : 'YOUR LITTLE STORY MATTERS'}}
+    </view>
+    <view class="page-title compose-title">
+      {{isSong ? '把心意，唱给 TA 听。' : isErrand ? '需要帮忙？说给小窝听。' : '记录此刻，分享日常。'}}</view>
+    <view class="page-subtitle">
+      {{isSong ? '给重要的人，点一首刚刚好的歌' : isErrand ? '写清楚一点，让帮助来得更顺利' : '每一份分享，都是校园里的一点光'}}</view>
+    <view class="paper form-card" wx:if="{{!isErrand && !isSong}}">
+      <picker range="{{types}}" range-key="name" value="{{typeIndex}}" bindchange="changeType">
+        <view class="row between type-picker">
+          <view class="row"><van-icon name="apps-o" color="#96a67e" size="21" /><text>发布到</text>
+          </view>
+          <view>{{types[typeIndex].name}} <van-icon name="arrow-down" size="12" /></view>
+        </view>
+      </picker>
+    </view>
+    <view class="paper form-card">
+      <view class="field-label">{{isSong ? '歌曲名 / 歌手' : isErrand ? '需要什么帮助' : '给这段故事起个标题'}}</view>
+      <input class="form-input" value="{{title}}" maxlength="40"
+        placeholder="{{isSong ? '例如：晴天 / 周杰伦' : isErrand ? '例如：帮取一份北门快递' : '一个让同学想点进来的标题'}}"
+        placeholder-class="search-placeholder" data-field="title" bindinput="field" />
+      <view class="field-label content-label">
+        {{isSong ? '想送给谁，有什么想说的' : isErrand ? '需求详情' : '想分享些什么'}}</view>
+      <textarea class="form-textarea" value="{{content}}" maxlength="1000"
+        placeholder="{{isErrand ? '物品大小、期望送达时间、取件注意事项…' : '写下你的故事、想法，或是一个小小的发现…'}}"
+        placeholder-class="search-placeholder" data-field="content" bindinput="field" />
+      <view class="word-count">{{content.length}} / 1000</view>
+      <view class="upload-row" wx:if="{{!isErrand && !isSong}}">
+        <view wx:for="{{images}}" wx:key="*this" class="upload-image">
+          <image src="{{item}}" mode="aspectFill" />
+          <view class="remove-image" data-index="{{index}}" bindtap="removeImage">×</view>
+        </view>
+        <view wx:if="{{images.length < 3}}" class="upload-add" bindtap="chooseImages"><van-icon
+            name="photograph" size="27" /><text>添加图片</text></view>
+      </view>
+    </view>
+    <view class="paper form-card" wx:if="{{isGoods || isErrand}}">
+      <view class="field-label">{{isErrand ? '跑腿酬金（元）' : type === 'buy' ? '求购预算（元）' : '期待转让价（元）'}}
+      </view>
+      <input class="form-input" type="digit" value="{{price}}" maxlength="8" placeholder="0.00"
+        data-field="price" bindinput="field" />
+    </view>
+    <view class="paper form-card" wx:if="{{!isSong}}">
+      <view class="field-label">{{isErrand ? '取件 / 取餐地点' : isActivity ? '活动地点与时间' : '地点（选填）'}}
+      </view>
+      <input class="form-input" value="{{location}}" maxlength="80"
+        placeholder="{{isErrand ? '例如：北门菜鸟驿站' : '例如：图书馆 / 操场'}}" data-field="location"
+        bindinput="field" />
+      <block wx:if="{{isErrand}}">
+        <view class="field-label content-label">送达地点</view>
+        <input class="form-input" value="{{destination}}" maxlength="80" placeholder="例如：南区 3 栋楼下"
+          data-field="destination" bindinput="field" />
+        <view class="field-label content-label">联系方式</view>
+        <input class="form-input" value="{{contact}}" maxlength="60" placeholder="填写用于联系你的手机号或微信号"
+          data-field="contact" bindinput="field" />
+      </block>
+    </view>
+    <view wx:if="{{type === 'confession' || type === 'treehole'}}" class="paper anonymous-row"
+      bindtap="toggleAnonymous"><text>匿名发布</text>
+      <view class="toggle {{anonymous ? 'on' : ''}}">
+        <view></view>
+      </view>
+    </view>
+    <view class="form-note">
+      {{isErrand || isSong ? '当前为本地演示，不会产生真实订单或通知。' : '友善发言，尊重隐私，让校园生活因你而更美好。'}}</view>
+    <button class="primary" loading="{{saving}}" disabled="{{saving}}" bindtap="submit">
+      {{isErrand ? '提交跑腿需求' : isSong ? '送出这首歌' : '发布到小窝'}}</button>
+    <button wx:if="{{!isErrand && !isSong}}" class="draft-button" bindtap="saveDraft">先存草稿，稍后再写
+    </button>
+  </block>
+</view>

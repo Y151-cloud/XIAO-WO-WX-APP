@@ -1,7 +1,12 @@
 {
   "description": "校窝 - 小窝虽小，装得下整个校园",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "scripts"
+      }
+    ],
     "include": []
   },
   "setting": {
@@ -42,7 +47,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "3.3.4",
-  "appid": "请填写你的AppID",
+  "appid": "wx54f9a6ea00d995f2",
   "projectname": "xiaowo",
   "condition": {}
 }

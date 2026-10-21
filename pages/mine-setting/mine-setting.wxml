@@ -1,40 +1,32 @@
-<view class="page">
-  <!-- 账号与安全 -->
-  <view class="section">
-    <view class="section-title">账号与安全</view>
-    <view class="card-box">
-      <van-cell-group>
-        <van-cell title="手机号" value="{{phone}}" is-link />
-        <van-cell title="微信绑定" value="已绑定" is-link />
-        <van-cell title="学校认证" value="{{schoolVerified ? '已认证' : '未认证'}}" is-link />
-      </van-cell-group>
+<view class="screen">
+  <view class="eyebrow">MAKE YOURSELF AT HOME</view>
+  <view class="page-title settings-title">让小窝，更合你意。</view>
+  <view class="section-head"><text class="section-title">个人与偏好</text></view>
+  <view class="paper">
+    <view class="menu-row" bindtap="profile"><van-icon name="user-o" size="22"
+        color="#9cac85" /><text class="menu-copy">个人资料</text><van-icon name="arrow" size="13"
+        color="#b0bba1" /></view>
+    <view class="menu-row"><van-icon name="bell" size="22" color="#9cac85" /><text
+        class="menu-copy">本地通知偏好</text>
+      <switch checked="{{notification}}" color="#a8b88c" bindchange="toggle"
+        style="transform:scale(.75);transform-origin:right center" />
     </view>
+    <view class="menu-row" bindtap="privacy"><van-icon name="shield-o" size="22"
+        color="#9cac85" /><text class="menu-copy">隐私说明</text><van-icon name="arrow" size="13"
+        color="#b0bba1" /></view>
   </view>
-
-  <!-- 通用设置 -->
-  <view class="section">
-    <view class="section-title">通用设置</view>
-    <view class="card-box">
-      <van-cell-group>
-        <van-cell title="消息通知" is-link />
-        <van-cell title="隐私设置" is-link />
-        <van-cell title="深色模式" is-link />
-      </van-cell-group>
-    </view>
+  <view class="section-head"><text class="section-title">关于小窝</text></view>
+  <view class="paper">
+    <view class="menu-row" bindtap="feedback"><van-icon name="comment-o" size="22"
+        color="#9cac85" /><text class="menu-copy">意见反馈</text><van-icon name="arrow" size="13"
+        color="#b0bba1" /></view>
+    <view class="menu-row" bindtap="about"><van-icon name="info-o" size="22" color="#9cac85" /><text
+        class="menu-copy">关于校窝</text><text class="menu-description">v1.1.0</text><van-icon
+        name="arrow" size="13" color="#b0bba1" /></view>
+    <view class="menu-row" bindtap="reset"><van-icon name="replay" size="22" color="#bd9a75" /><text
+        class="menu-copy reset-text">重置演示内容</text><van-icon name="arrow" size="13"
+        color="#b0bba1" /></view>
   </view>
-
-  <!-- 其他 -->
-  <view class="section">
-    <view class="section-title">其他</view>
-    <view class="card-box">
-      <van-cell-group>
-        <van-cell title="清除缓存" is-link bind:click="onClearCache" />
-        <van-cell title="意见反馈" is-link />
-        <van-cell title="关于校窝" is-link value="v1.0.0" />
-      </van-cell-group>
-    </view>
-  </view>
-
-  <!-- 退出登录 -->
-  <view class="logout-btn" bindtap="onLogout">退出登录</view>
+  <view class="form-note settings-note">当前使用本地模拟接口 · 个人数据仅保存在本机<view class="line-break"></view>
+    通知偏好仅本地保存，暂不会收到服务推送</view>
 </view>

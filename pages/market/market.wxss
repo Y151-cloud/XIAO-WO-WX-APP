@@ -1,10 +1,184 @@
-/* 集市样式 */
-.container {
-  background-color: #F5F5F5;
-  min-height: 100vh;
+.market-title {
+  font-size: 39rpx;
+  margin-top: 16rpx
 }
 
-.tabs-rounded ::v-deep .van-tabs__wrap {
-  border-radius: 16rpx;
-  overflow: hidden;
+.market-seal {
+  width: 84rpx;
+  height: 84rpx;
+  background: #e9eddf;
+  border-radius: 50%;
+  font-size: 18rpx;
+  color: #a3af8a;
+  text-align: center;
+  padding-top: 14rpx;
+  transform: rotate(12deg);
+  letter-spacing: 2rpx
+}
+
+.search-button {
+  font-size: 23rpx;
+  color: #879772
+}
+
+.market-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e8eddf;
+  padding: 26rpx 30rpx;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx
+}
+
+.market-banner-title {
+  font-size: 27rpx;
+  font-weight: 600;
+  display: block;
+  color: #71865c
+}
+
+.market-banner-note {
+  font-size: 20rpx;
+  color: #9aa98b;
+  display: block;
+  margin-top: 8rpx
+}
+
+.market-flower {
+  font-size: 70rpx;
+  color: #b3bf96;
+  line-height: 1
+}
+
+.tabs {
+  gap: 29rpx
+}
+
+.market-filter {
+  font-size: 21rpx;
+  color: #a2ac97;
+  margin: 7rpx 0 24rpx
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx
+}
+
+.product {
+  width: calc(50% - 10rpx);
+  background: #fff;
+  border: 1rpx solid #ecefe5;
+  border-radius: 22rpx;
+  overflow: hidden
+}
+
+.product-cover {
+  height: 300rpx;
+  position: relative;
+  background: #e9ebdf
+}
+
+.product-cover image {
+  width: 100%;
+  height: 100%
+}
+
+.condition {
+  position: absolute;
+  left: 16rpx;
+  top: 16rpx;
+  font-size: 18rpx;
+  border-radius: 7rpx;
+  background: #ffffffe6;
+  color: #8c997d;
+  padding: 5rpx 10rpx
+}
+
+.product-body {
+  padding: 20rpx
+}
+
+.product-title {
+  display: block;
+  max-height: 3.6em;
+  font-size: 25rpx;
+  line-height: 1.6;
+  height: 80rpx;
+  overflow: hidden
+}
+
+.price-row {
+  display: flex;
+  gap: 9rpx;
+  align-items: baseline;
+  margin-top: 8rpx
+}
+
+.price {
+  font-size: 37rpx;
+  font-weight: 700;
+  color: #d78257
+}
+
+.currency {
+  font-size: 22rpx;
+  margin-right: 3rpx
+}
+
+.original {
+  font-size: 18rpx;
+  text-decoration: line-through;
+  color: #b2b7a9
+}
+
+.want {
+  white-space: nowrap;
+  font-size: 17rpx;
+  color: #a6ae9c;
+  margin-left: auto
+}
+
+.product-user {
+  display: flex;
+  align-items: center;
+  gap: 7rpx;
+  font-size: 18rpx;
+  color: #9ca58e;
+  margin-top: 20rpx;
+  flex-wrap: wrap
+}
+
+.mini-avatar {
+  width: 30rpx;
+  height: 30rpx;
+  background: #edf0e4;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 17rpx;
+  line-height: 30rpx;
+  color: #8f9e78
+}
+
+.product-location {
+  font-size: 17rpx;
+  flex-basis: 100%;
+  margin-left: 37rpx
+}
+
+.text-cover {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16rpx;
+  color: #a5b18f;
+  font-size: 28rpx
+}
+
+.carpool-price {
+  font-size: 28rpx
 }

@@ -1,4 +1,1 @@
-/* 我的发布样式 */
-.container {
-  padding: 20rpx;
-}
+@import "../explore/explore.wxss";

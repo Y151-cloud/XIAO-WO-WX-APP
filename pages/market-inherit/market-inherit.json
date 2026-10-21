@@ -1,4 +1,8 @@
 {
-  "navigationBarTitleText": "学长学姐传承",
-  "usingComponents": {}
+  "navigationBarTitleText": "毕业传承",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-icon": "/vant/icon/index",
+    "post-card": "/components/post-card/index"
+  }
 }

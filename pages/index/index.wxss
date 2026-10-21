@@ -1,18 +1,279 @@
-.container {
-  background-color: #F5F5F5;
-  min-height: 100vh;
+.brand-row {
+  padding: 3rpx 0 24rpx
 }
-.banner-section {
-  margin: 20rpx 24rpx;
-  border-radius: 16rpx;
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  font-size: 35rpx;
+  font-weight: 700;
+  letter-spacing: 3rpx
+}
+
+.brand-mark {
+  background: #d88659;
+  color: white;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 15rpx;
+  font-size: 27rpx;
+  text-align: center;
+  line-height: 48rpx;
+  position: relative
+}
+
+.mark-leaf {
+  position: absolute;
+  right: -5rpx;
+  top: -7rpx;
+  width: 15rpx;
+  height: 12rpx;
+  background: #a1b185;
+  border-radius: 12rpx 2rpx
+}
+
+.brand-caption {
+  font-weight: 400;
+  font-size: 16rpx;
+  color: #a8b09c;
+  letter-spacing: 2rpx;
+  margin-left: 8rpx
+}
+
+.notification {
+  color: #8c987f;
+  position: relative;
+  padding: 8rpx
+}
+
+.notification-dot {
+  position: absolute;
+  width: 8rpx;
+  height: 8rpx;
+  background: #df8860;
+  border-radius: 50%;
+  right: 9rpx;
+  top: 8rpx
+}
+
+.greeting {
+  margin-top: 12rpx;
+  align-items: center
+}
+
+.welcome {
+  font-size: 46rpx;
+  letter-spacing: 2rpx;
+  font-weight: 650;
+  margin-top: 12rpx
+}
+
+.wave {
+  color: #b6bf83;
+  font-size: 40rpx;
+  margin-left: 8rpx
+}
+
+.page-subtitle {
+  font-size: 23rpx
+}
+
+.eyebrow {
+  font-size: 16rpx;
+  letter-spacing: 2rpx
+}
+
+.school-switch {
+  display: flex;
+  gap: 5rpx;
+  align-items: center;
+  background: #edf0e3;
+  color: #8b997a;
+  border-radius: 24rpx;
+  padding: 12rpx 14rpx;
+  max-width: 210rpx;
+  font-size: 21rpx
+}
+
+.school-switch text {
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 130rpx
 }
-.tabs-rounded ::v-deep .van-tabs__wrap {
-  border-radius: 16rpx;
+
+.search-action {
+  font-size: 23rpx;
+  color: #899776;
+  border-left: 1rpx solid #d9dfcb;
+  padding-left: 20rpx
+}
+
+.hero {
+  height: 304rpx;
+  border-radius: 24rpx;
   overflow: hidden;
-  margin: 0 24rpx;
+  position: relative;
+  background: #f3e6cc
 }
-.tab-content {
-  padding: 20rpx 24rpx;
-  min-height: 400rpx;
+
+.hero-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%
+}
+
+.hero-copy {
+  position: relative;
+  padding: 32rpx
+}
+
+.hero-label {
+  font-size: 16rpx;
+  letter-spacing: 3rpx;
+  color: #a58c63
+}
+
+.hero-title {
+  font-size: 36rpx;
+  line-height: 1.6;
+  font-weight: 600;
+  color: #705c3a;
+  letter-spacing: 2rpx;
+  margin-top: 10rpx
+}
+
+.hero-button {
+  font-size: 20rpx;
+  border: 1rpx solid #bfaa82;
+  width: 174rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  padding: 9rpx;
+  margin-top: 16rpx;
+  color: #8a724e
+}
+
+.hero-index {
+  position: absolute;
+  bottom: 22rpx;
+  right: 24rpx;
+  font-size: 17rpx;
+  color: #a99570;
+  letter-spacing: 4rpx
+}
+
+.quick-grid {
+  display: flex;
+  justify-content: space-between;
+  padding: 32rpx 6rpx 30rpx
+}
+
+.quick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9rpx;
+  font-size: 24rpx;
+  color: #5b6653
+}
+
+.quick-icon {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 29rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 7rpx
+}
+
+.apricot {
+  background: #f8e7d5;
+  color: #ca9267
+}
+
+.sage {
+  background: #e8eddc;
+  color: #94a878
+}
+
+.butter {
+  background: #f4edce;
+  color: #b6a567
+}
+
+.lavender {
+  background: #ece9f0;
+  color: #a499b3
+}
+
+.quick-note {
+  font-size: 18rpx;
+  color: #a8af9d
+}
+
+.campus-note {
+  background: #f0f2e6;
+  border: 1rpx solid #e5e9d6;
+  border-radius: 20rpx;
+  padding: 21rpx;
+  display: flex;
+  align-items: center;
+  gap: 20rpx
+}
+
+.note-badge {
+  font-size: 18rpx;
+  line-height: 1.4;
+  color: #91a174;
+  border-right: 1rpx solid #dbe2cb;
+  padding-right: 20rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx
+}
+
+.note-copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx
+}
+
+.note-title {
+  font-size: 23rpx;
+  color: #69775c
+}
+
+.note-subtitle {
+  font-size: 18rpx;
+  color: #a4ad96
+}
+
+.title-dot {
+  color: #d79167
+}
+
+.live-tag {
+  display: flex;
+  gap: 8rpx;
+  align-items: center;
+  font-size: 19rpx;
+  color: #a4ae96
+}
+
+.live-tag view {
+  width: 8rpx;
+  height: 8rpx;
+  background: #a9b589;
+  border-radius: 50%
+}
+
+.section-head {
+  margin-bottom: 8rpx
 }

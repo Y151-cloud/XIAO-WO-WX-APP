@@ -30,24 +30,29 @@
     "pages/admin-push/admin-push",
     "pages/admin-permission/admin-permission",
     "pages/mine-setting/mine-setting",
-    "pages/mine-profile/mine-profile"
+    "pages/mine-profile/mine-profile",
+    "pages/detail/detail",
+    "pages/compose/compose",
+    "pages/explore/explore",
+    "pages/help/help"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#FF6B35",
+    "navigationBarBackgroundColor": "#F7F8F2",
     "navigationBarTitleText": "校窝",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#F5F5F5"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F7F8F2",
+    "backgroundTextStyle": "dark"
   },
   "tabBar": {
     "custom": true,
-    "color": "#999999",
-    "selectedColor": "#FF6B35",
+    "color": "#A2A59C",
+    "selectedColor": "#DD8154",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "动态"
+        "text": "首页"
       },
       {
         "pagePath": "pages/community/community",

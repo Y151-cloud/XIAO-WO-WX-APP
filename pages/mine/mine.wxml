@@ -1,92 +1,64 @@
-<view class="page">
-  <!-- 顶部用户信息区域 -->
-  <view class="header">
-    <view class="header-bg">
-      <view class="bubble bubble-1"></view>
-      <view class="bubble bubble-2"></view>
-      <view class="bubble bubble-3"></view>
-      <view class="bubble bubble-4"></view>
-      <view class="bubble bubble-5"></view>
-      <view class="bubble bubble-6"></view>
+<view class="screen tab-screen">
+  <view class="row between"><text class="eyebrow">WELCOME TO YOUR LITTLE NEST</text>
+    <view class="setting" bindtap="setting"><van-icon name="setting-o" size="22" /></view>
+  </view>
+  <view class="profile-row" bindtap="profile">
+    <image class="profile-avatar" src="{{userInfo.avatarUrl || '/static/art/avatar.png'}}"
+      mode="aspectFill" />
+    <view class="profile-copy">
+      <view class="profile-name">{{userInfo.nickName || '小窝同学'}}</view>
+      <view class="profile-school"><van-icon name="location-o" size="12" />
+        {{userInfo.school || '我的大学'}}</view>
+      <view class="profile-signature">{{userInfo.signature || '在校园里，发现每一个小美好'}}</view>
+    </view><van-icon name="arrow" size="15" color="#a8b495" />
+  </view>
+  <view class="stats-card">
+    <view class="stat-publish" bindtap="publications"><text class="stat-number">{{stats.publish}}</text><text
+        class="stat-label">我的发布</text></view>
+    <view class="stat-favorite" bindtap="favorites"><text class="stat-number">{{stats.favorite}}</text><text
+        class="stat-label">我的收藏</text></view>
+    <view class="stat-joined" bindtap="joined"><text class="stat-number">{{stats.joined}}</text><text
+        class="stat-label">参与活动</text></view>
+    <view bindtap="orders"><text class="stat-number">{{stats.orders}}</text><text
+        class="stat-label">服务订单</text></view>
+  </view>
+  <view class="nest-card">
+    <view>
+      <view class="nest-title">小窝虽小，装得下整个校园。</view>
+      <view class="nest-note">谢谢你，让这里多了一份温暖。</view>
+    </view><text class="nest-flower">✳</text>
+  </view>
+  <view class="section-head"><text class="section-title">我的校园生活</text></view>
+  <view class="paper">
+    <view class="menu-row" bindtap="publications">
+      <view class="menu-icon"><van-icon name="notes-o" size="23" /></view><text
+        class="menu-copy">我的发布</text><van-icon name="arrow" size="13" color="#acb79e" />
     </view>
-    <view class="user-section">
-      <view class="avatar-wrap" bindtap="onLogin">
-        <image class="avatar" src="{{userInfo.avatarUrl || '/static/images/default-avatar.png'}}" mode="aspectFill" />
-      </view>
-      <view class="user-info">
-        <text class="nickname">{{userInfo.nickName || '点击登录'}}</text>
-        <view class="school-tag" wx:if="{{userInfo.school}}">
-          <van-icon name="location-o" size="12" color="#fff" />
-          <text>{{userInfo.school}}</text>
-        </view>
-      </view>
-      <view class="setting-btn" bindtap="goSetting">
-        <van-icon name="setting-o" size="22" color="#fff" />
-      </view>
+    <view class="menu-row" bindtap="favorites">
+      <view class="menu-icon"><van-icon name="star-o" size="23" /></view><text
+        class="menu-copy">我的收藏</text><van-icon name="arrow" size="13" color="#acb79e" />
     </view>
-
-    <!-- 数据统计 -->
-    <view class="stats-card">
-      <view class="stat-item" bindtap="goPublish">
-        <text class="stat-num">{{stats.publish || 0}}</text>
-        <text class="stat-label">发布</text>
-      </view>
-      <view class="stat-divider"></view>
-      <view class="stat-item" bindtap="goFavorite">
-        <text class="stat-num">{{stats.favorite || 0}}</text>
-        <text class="stat-label">收藏</text>
-      </view>
-      <view class="stat-divider"></view>
-      <view class="stat-item" bindtap="goFollow">
-        <text class="stat-num">{{stats.follow || 0}}</text>
-        <text class="stat-label">关注</text>
-      </view>
-      <view class="stat-divider"></view>
-      <view class="stat-item" bindtap="goFans">
-        <text class="stat-num">{{stats.fans || 0}}</text>
-        <text class="stat-label">粉丝</text>
-      </view>
+    <view class="menu-row" bindtap="history">
+      <view class="menu-icon"><van-icon name="clock-o" size="23" /></view><text
+        class="menu-copy">浏览记录</text><van-icon name="arrow" size="13" color="#acb79e" />
+    </view>
+    <view class="menu-row" bindtap="messages">
+      <view class="menu-icon"><van-icon name="chat-o" size="23" /></view><text
+        class="menu-copy">我的消息</text><text class="menu-description">校园通知</text><van-icon
+        name="arrow" size="13" color="#acb79e" />
     </view>
   </view>
-
-  <!-- 常用功能 -->
-  <view class="section">
-    <view class="section-title">常用功能</view>
-    <view class="card-box">
-      <van-grid column-num="4" border="{{false}}">
-        <van-grid-item icon="notes-o" text="我的发布" url="/pages/mine-publish/mine-publish" />
-        <van-grid-item icon="star-o" text="我的收藏" url="/pages/mine-favorite/mine-favorite" />
-        <van-grid-item icon="eye-o" text="浏览记录" url="" />
-        <van-grid-item icon="chat-o" text="我的消息" url="" />
-      </van-grid>
-    </view>
+  <view class="section-head"><text class="section-title">小窝陪着你</text></view>
+  <view class="paper">
+    <view class="menu-row" bindtap="guide"><van-icon name="question-o" size="21"
+        color="#a0ae89" /><text class="menu-copy">帮助中心</text><van-icon name="arrow" size="13"
+        color="#acb79e" /></view>
+    <view class="menu-row" bindtap="feedback"><van-icon name="comment-o" size="21"
+        color="#a0ae89" /><text class="menu-copy">意见反馈</text><van-icon name="arrow" size="13"
+        color="#acb79e" /></view>
+    <view class="menu-row" bindtap="about"><van-icon name="info-o" size="21" color="#a0ae89" /><text
+        class="menu-copy">关于校窝</text><text class="menu-description">v1.1.0</text><van-icon
+        name="arrow" size="13" color="#acb79e" /></view>
   </view>
-
-  <!-- 管理员菜单 -->
-  <view class="section" wx:if="{{isAdmin}}">
-    <view class="section-title">管理后台</view>
-    <view class="card-box">
-      <van-cell-group>
-        <van-cell title="订单管理" icon="orders-o" is-link url="/pages/admin-order/admin-order" />
-        <van-cell title="反馈管理" icon="comment-o" is-link url="/pages/admin-feedback/admin-feedback" />
-        <van-cell title="内容审核" icon="shield-o" is-link url="/pages/admin-audit/admin-audit" />
-        <van-cell title="用户管理" icon="friends-o" is-link url="/pages/admin-user/admin-user" />
-        <van-cell title="数据统计" icon="chart-trending-o" is-link url="/pages/admin-stats/admin-stats" />
-        <van-cell title="举报处理" icon="warning-o" is-link url="/pages/admin-report/admin-report" />
-        <van-cell title="推送管理" icon="bell" is-link url="/pages/admin-push/admin-push" />
-        <van-cell title="权限管理" icon="manager-o" is-link url="/pages/admin-permission/admin-permission" />
-      </van-cell-group>
-    </view>
-  </view>
-
-  <!-- 底部菜单 -->
-  <view class="section">
-    <view class="card-box">
-      <van-cell-group>
-        <van-cell title="帮助中心" icon="question-o" is-link />
-        <van-cell title="意见反馈" icon="comment-o" is-link />
-        <van-cell title="关于我们" icon="info-o" is-link />
-      </van-cell-group>
-    </view>
-  </view>
+  <view class="mine-footer">XIAOWO · 让校园的每一天，都有小美好</view>
 </view>

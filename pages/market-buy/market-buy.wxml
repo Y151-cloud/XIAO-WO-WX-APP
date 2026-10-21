@@ -1,3 +1,1 @@
-<view class="container">
-  <!-- 求购专区页面 -->
-</view>
+<include src="../explore/content.wxml" />

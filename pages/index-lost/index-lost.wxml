@@ -1,3 +1,1 @@
-<view class="container">
-  <!-- 失物招领页面 -->
-</view>
+<include src="../explore/content.wxml" />

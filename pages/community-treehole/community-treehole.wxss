@@ -1,4 +1,1 @@
-/* 树洞样式 */
-.container {
-  padding: 20rpx;
-}
+@import "../explore/explore.wxss";

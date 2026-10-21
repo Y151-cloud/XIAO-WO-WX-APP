@@ -1,157 +1,114 @@
-/* 我的页面样式 */
-.page {
-  min-height: 100vh;
-  background-color: #F5F5F5;
-  padding-bottom: 120rpx;
+.setting {
+  color: #8c9b78;
+  padding: 10rpx
 }
 
-/* ===== 顶部区域 ===== */
-.header {
-  position: relative;
-  padding-bottom: 30rpx;
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 22rpx;
+  padding: 36rpx 0
 }
 
-.header-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 400rpx;
-  background: linear-gradient(135deg, #FF6B35, #FF8C5A, #FF6B35, #FFB347);
-  background-size: 400% 400%;
-  border-radius: 0 0 40rpx 40rpx;
-  animation: gradientFlow 8s ease infinite;
+.profile-avatar {
+  width: 126rpx;
+  height: 126rpx;
+  border-radius: 42rpx;
+  border: 7rpx solid white;
+  background: #e6ecd9
+}
+
+.profile-copy {
+  flex: 1;
+  min-width: 0
+}
+
+.profile-name {
+  font-size: 38rpx;
+  font-weight: 650;
+  color: #4a593d;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis
 }
 
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.profile-school {
+  font-size: 21rpx;
+  color: #98a882;
+  margin-top: 8rpx
 }
 
-/* ===== 浮动气泡 ===== */
-.bubble {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  animation: floatUp linear infinite;
+.profile-signature {
+  font-size: 21rpx;
+  color: #acb49e;
+  margin-top: 7rpx
 }
 
-.bubble-1 { width: 60rpx; height: 60rpx; left: 10%; bottom: -60rpx; animation-duration: 6s; }
-.bubble-2 { width: 40rpx; height: 40rpx; left: 30%; bottom: -40rpx; animation-duration: 8s; animation-delay: 1s; }
-.bubble-3 { width: 80rpx; height: 80rpx; left: 55%; bottom: -80rpx; animation-duration: 7s; animation-delay: 2s; }
-.bubble-4 { width: 35rpx; height: 35rpx; left: 75%; bottom: -35rpx; animation-duration: 9s; animation-delay: 0.5s; }
-.bubble-5 { width: 50rpx; height: 50rpx; left: 88%; bottom: -50rpx; animation-duration: 6.5s; animation-delay: 3s; }
-.bubble-6 { width: 25rpx; height: 25rpx; left: 45%; bottom: -25rpx; animation-duration: 10s; animation-delay: 1.5s; }
-
-@keyframes floatUp {
-  0% { transform: translateY(0) scale(1); opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.2; }
-  100% { transform: translateY(-500rpx) scale(1.5); opacity: 0; }
-}
-
-/* ===== 用户信息 ===== */
-.user-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 100rpx 40rpx 30rpx;
-}
-
-.avatar-wrap { flex-shrink: 0; }
-
-.avatar {
-  width: 128rpx;
-  height: 128rpx;
-  border-radius: 50%;
-  border: 6rpx solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.user-info {
-  flex: 1;
-  margin-left: 28rpx;
-  display: flex;
-  flex-direction: column;
-}
-
-.nickname {
-  font-size: 40rpx;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 10rpx;
-}
-
-.school-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6rpx;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 20rpx;
-  padding: 6rpx 16rpx;
-  font-size: 22rpx;
-  color: #fff;
-  width: fit-content;
-}
-
-.setting-btn { padding: 16rpx; }
-
-/* ===== 数据统计卡片 ===== */
 .stats-card {
-  position: relative;
   display: flex;
-  align-items: center;
+  justify-content: space-around;
   background: #fff;
-  margin: 0 24rpx;
-  border-radius: 20rpx;
-  padding: 36rpx 0;
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.06);
+  border: 1rpx solid #eaf0df;
+  border-radius: 24rpx;
+  padding: 30rpx 10rpx
 }
 
-.stat-item {
-  flex: 1;
+.stats-card>view {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  flex: 1;
+  border-right: 1rpx solid #edf0e5
 }
 
-.stat-num {
+.stats-card>view:last-child {
+  border: 0
+}
+
+.stat-number {
   font-size: 40rpx;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 8rpx;
+  color: #60734f;
+  font-weight: 650
 }
 
 .stat-label {
-  font-size: 24rpx;
-  color: #999;
+  font-size: 21rpx;
+  color: #a4ae98;
+  margin-top: 8rpx
 }
 
-.stat-divider {
-  width: 1rpx;
-  height: 60rpx;
-  background-color: #eee;
-}
-
-/* ===== 通用分区 ===== */
-.section {
-  margin: 24rpx 0;
-}
-
-.section-title {
-  font-size: 30rpx;
-  font-weight: 600;
-  color: #333;
-  padding: 0 24rpx 16rpx;
-}
-
-/* 统一卡片样式 - 所有卡片同宽 */
-.card-box {
-  margin: 0 24rpx;
+.nest-card {
+  background: #eaf0df;
   border-radius: 20rpx;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  margin-top: 22rpx;
+  padding: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.nest-title {
+  font-size: 25rpx;
+  font-weight: 600;
+  color: #83976a
+}
+
+.nest-note {
+  font-size: 20rpx;
+  color: #a4b18f;
+  margin-top: 7rpx
+}
+
+.nest-flower {
+  font-size: 67rpx;
+  line-height: 1;
+  color: #afbf93
+}
+
+.mine-footer {
+  text-align: center;
+  font-size: 18rpx;
+  color: #b1bca3;
+  margin: 40rpx 0 15rpx;
+  letter-spacing: 2rpx
 }

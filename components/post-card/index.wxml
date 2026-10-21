@@ -1,0 +1,23 @@
+<view class="post-card" bindtap="open">
+  <view class="post-author">
+    <view class="avatar {{post.tone}}">{{post.avatar}}</view>
+    <view class="author-copy"><text class="author-name">{{post.author}}</text><text
+        class="post-time">{{post.time}} · {{post.location}}</text></view><van-icon name="ellipsis"
+      size="20" color="#b6b2ac" />
+  </view>
+  <view class="post-title">{{post.title}}</view>
+  <view class="post-content">{{post.content}}</view>
+  <view wx:if="{{post.images.length}}"
+    class="post-images {{post.images.length === 1 ? 'single' : ''}}">
+    <image wx:for="{{post.images}}" wx:key="*this" class="post-image" src="{{item}}"
+      mode="aspectFill" lazy-load />
+  </view>
+  <view class="post-bottom"><text class="topic"># {{post.tag}}</text>
+    <view class="post-counts">
+      <view class="count"><van-icon name="chat-o" size="17" /><text>{{post.comments}}</text></view>
+      <view class="count {{post.liked ? 'liked' : ''}}" catchtap="like"><van-icon
+          name="{{post.liked ? 'good-job' : 'good-job-o'}}" size="18" /><text>{{post.likes}}</text>
+      </view>
+    </view>
+  </view>
+</view>

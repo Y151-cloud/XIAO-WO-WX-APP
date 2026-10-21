@@ -1,4 +1,8 @@
 {
   "navigationBarTitleText": "失物招领",
-  "usingComponents": {}
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-icon": "/vant/icon/index",
+    "post-card": "/components/post-card/index"
+  }
 }

@@ -1,3 +1,1 @@
-<view class="container">
-  <!-- 树洞页面 -->
-</view>
+<include src="../explore/content.wxml" />

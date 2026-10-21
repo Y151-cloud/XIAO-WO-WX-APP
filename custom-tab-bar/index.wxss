@@ -1,5 +1,44 @@
-/* 自定义 TabBar 样式 */
-.tab-bar-wrap {
-  border-radius: 16rpx 16rpx 0 0;
-  overflow: hidden;
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  display: flex;
+  background: #fff;
+  border-top: 1rpx solid #f0eee8;
+  padding: 16rpx 18rpx calc(12rpx + env(safe-area-inset-bottom));
+  box-shadow: 0 -6rpx 30rpx rgba(52, 61, 48, .025)
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color: #a2a59c;
+  font-size: 20rpx;
+  gap: 6rpx
+}
+
+.icon-wrap {
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.selected {
+  color: #de7b4c;
+  font-weight: 600
+}
+
+.active-dot {
+  width: 6rpx;
+  height: 6rpx;
+  background: #de7b4c;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -9rpx
 }

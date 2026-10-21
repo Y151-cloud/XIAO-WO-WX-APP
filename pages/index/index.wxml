@@ -1,28 +1,73 @@
-<view class="container">
-  <!-- 搜索栏 -->
-  <van-search placeholder="搜索校园动态..." shape="round" />
-
-  <!-- 轮播图区域 -->
-  <view class="banner-section">
-    <!-- 轮播图占位 -->
+<view class="screen tab-screen">
+  <view class="row between brand-row">
+    <view class="brand">
+      <view class="brand-mark">窝<view class="mark-leaf"></view>
+      </view><text>校窝</text><text class="brand-caption">你 的 校 园 生 活 圈</text>
+    </view>
+    <view class="notification" bindtap="messages"><van-icon name="bell" size="21" />
+      <view class="notification-dot"></view>
+    </view>
   </view>
-
-  <!-- Tab标签栏 -->
-  <van-tabs active="{{activeTab}}" color="#FF6B35" title-active-color="#FF6B35" bind:change="onTabChange" class="tabs-rounded">
-    <van-tab title="校园动态">
-      <view class="tab-content">
-      
-      </view>
-    </van-tab>
-    <van-tab title="失物招领">
-      <view class="tab-content">
-       
-      </view>
-    </van-tab>
-    <van-tab title="活动发布">
-      <view class="tab-content">
-        
-      </view>
-    </van-tab>
-  </van-tabs>
+  <view class="row between greeting">
+    <view>
+      <view class="eyebrow">A LITTLE NEST, A BIG CAMPUS</view>
+      <view class="welcome">嗨，同学 <text class="wave">✳</text></view>
+      <view class="page-subtitle">今天，也有值得期待的校园小事</view>
+    </view>
+    <view class="school-switch" bindtap="chooseSchool"><van-icon name="location-o"
+        size="14" /><text>{{school}}</text><van-icon name="arrow-down" size="10" /></view>
+  </view>
+  <view class="search"><van-icon name="search" size="19" color="#9ca88c" />
+    <input placeholder="搜点校园新鲜事" placeholder-class="search-placeholder" value="{{keyword}}"
+      bindinput="input" bindconfirm="search" confirm-type="search" />
+    <view class="search-action" bindtap="search">搜索</view>
+  </view>
+  <view class="hero" bindtap="openActivity">
+    <image class="hero-art" src="/static/art/hero.png" mode="aspectFill" />
+    <view class="hero-copy">
+      <view class="hero-label">HELLO, CAMPUS</view>
+      <view class="hero-title">小窝虽小，<view class="line-break"></view>装得下整个校园。</view>
+      <view class="hero-button">去发现美好 <van-icon name="arrow" size="11" /></view>
+    </view>
+    <view class="hero-index">01 / 03</view>
+  </view>
+  <view class="quick-grid">
+    <view class="quick" data-type="dynamic" data-title="校园动态" bindtap="openCategory">
+      <view class="quick-icon apricot"><van-icon name="description" size="25" /></view>
+      <text>校园动态</text><text class="quick-note">新鲜事发生</text>
+    </view>
+    <view class="quick" data-type="lost" data-title="失物招领" bindtap="openCategory">
+      <view class="quick-icon sage"><van-icon name="search" size="25" /></view>
+      <text>失物招领</text><text class="quick-note">帮好物回家</text>
+    </view>
+    <view class="quick" data-type="activity" data-title="校园活动" bindtap="openCategory">
+      <view class="quick-icon butter"><van-icon name="flag-o" size="25" /></view>
+      <text>校园活动</text><text class="quick-note">快乐不缺席</text>
+    </view>
+    <view class="quick" data-type="forum" data-title="学习搭子" bindtap="openCategory">
+      <view class="quick-icon lavender"><van-icon name="friends-o" size="25" /></view>
+      <text>找个搭子</text><text class="quick-note">同频就同行</text>
+    </view>
+  </view>
+  <view class="campus-note" bindtap="openActivity">
+    <view class="note-badge">窝里<view class="line-break"></view>新鲜事</view>
+    <view class="note-copy"><text class="note-title">周五落日音乐会，等你来赴约</text><text
+        class="note-subtitle">带上好心情，一起把日落听成歌</text></view><van-icon name="arrow" size="13"
+      color="#a3ad94" />
+  </view>
+  <view class="section-head">
+    <view class="section-title">正在校园发生<text class="title-dot"> · </text></view>
+    <view class="live-tag">
+      <view></view> 发现身边的美好
+    </view>
+  </view>
+  <view class="tabs">
+    <view wx:for="{{tabs}}" wx:key="type" class="tab {{active === index ? 'active' : ''}}"
+      data-index="{{index}}" bindtap="changeTab">{{item.name}}</view>
+  </view>
+  <view wx:if="{{error}}" class="error-box" bindtap="load">{{error}} · 点击重试</view>
+  <post-card wx:for="{{posts}}" wx:key="id" post="{{item}}" bind:open="openPost" bind:change="onPostChange" />
+  <view class="status">{{loading ? '小窝正在整理新鲜事…' : hasMore ? '继续上滑，看看更多' : '小窝的美好，等你来续写'}}</view>
+  <view class="floating-publish" bindtap="publish"><van-icon name="plus"
+      size="17" /><text>发动态</text></view>
 </view>

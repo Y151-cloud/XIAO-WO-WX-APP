@@ -1,0 +1,229 @@
+.help-title {
+  font-size: 39rpx;
+  margin-top: 20rpx
+}
+
+.help-screen>.page-subtitle {
+  margin-bottom: 30rpx
+}
+
+.question-card {
+  padding: 28rpx;
+  margin-top: 22rpx
+}
+
+.question-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #82956e
+}
+
+.question-answer {
+  font-size: 25rpx;
+  line-height: 1.9;
+  color: #9ca98d;
+  margin-top: 16rpx
+}
+
+.about-logo {
+  position: relative;
+  width: 135rpx;
+  height: 135rpx;
+  background: #d88c61;
+  color: white;
+  font-size: 78rpx;
+  line-height: 135rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  margin: 45rpx auto 24rpx
+}
+
+.about-logo view {
+  position: absolute;
+  top: -16rpx;
+  right: -12rpx;
+  background: #a4b18b;
+  width: 42rpx;
+  height: 30rpx;
+  border-radius: 30rpx 4rpx;
+  transform: rotate(-20deg)
+}
+
+.about-name {
+  text-align: center;
+  font-size: 45rpx;
+  letter-spacing: 8rpx;
+  font-weight: 700;
+  color: #778864
+}
+
+.about-slogan {
+  text-align: center;
+  color: #aab798;
+  font-size: 24rpx;
+  margin: 12rpx 0 40rpx
+}
+
+.about-card {
+  padding: 36rpx
+}
+
+.about-heading {
+  font-size: 38rpx;
+  color: #8d9d78;
+  line-height: 1.7;
+  margin-top: 20rpx
+}
+
+.about-content {
+  font-size: 26rpx;
+  line-height: 1.9;
+  color: #a4ae98;
+  margin-top: 25rpx
+}
+
+.record-card {
+  padding: 28rpx;
+  margin-top: 24rpx
+}
+
+.record-title {
+  font-size: 28rpx;
+  color: #7e906b;
+  font-weight: 600;
+  flex: 1;
+  min-width: 0
+}
+
+.record-content {
+  font-size: 26rpx;
+  line-height: 1.8;
+  color: #9eab8f;
+  margin-top: 22rpx;
+  white-space: pre-wrap
+}
+
+.record-route {
+  font-size: 24rpx;
+  background: #f4f6ee;
+  border-radius: 12rpx;
+  padding: 18rpx;
+  color: #8fa276;
+  margin-top: 20rpx
+}
+
+.record-meta {
+  font-size: 20rpx;
+  color: #b0bca0;
+  margin-top: 18rpx
+}
+
+.message-heading {
+  margin-left: 18rpx
+}
+
+.message-heading .record-meta {
+  margin-top: 5rpx
+}
+
+.message-link {
+  font-size: 24rpx;
+  color: #acb98b;
+  margin-top: 25rpx
+}
+
+.feedback-success {
+  padding: 40rpx;
+  margin-top: 30rpx;
+  text-align: center
+}
+
+.feedback-success .empty-title {
+  margin-top: 28rpx
+}
+
+.chat-notice {
+  text-align: center;
+  font-size: 21rpx;
+  color: #afaa8a;
+  background: #f5f0dc;
+  border-radius: 12rpx;
+  padding: 17rpx
+}
+
+.chat-product {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 20rpx;
+  margin: 24rpx 0
+}
+
+.chat-product image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 15rpx
+}
+
+.chat-hint {
+  color: #b0baa0;
+  font-size: 20rpx;
+  text-align: center;
+  margin: 28rpx 0
+}
+
+.chat-line {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 15rpx;
+  margin: 22rpx 0
+}
+
+.chat-bubble {
+  max-width: 480rpx;
+  padding: 20rpx 24rpx;
+  border-radius: 18rpx 4rpx 18rpx 18rpx;
+  background: #e8efdd;
+  color: #7e906a;
+  font-size: 26rpx;
+  white-space: pre-wrap;
+  word-break: break-all
+}
+
+.chat-avatar {
+  background: #f3e2c9;
+  border-radius: 18rpx;
+  width: 65rpx;
+  height: 65rpx;
+  text-align: center;
+  line-height: 65rpx;
+  color: #b49a73
+}
+
+.chat-compose {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 20rpx 28rpx calc(20rpx + env(safe-area-inset-bottom));
+  gap: 20rpx;
+  border-top: 1rpx solid #eaf0df
+}
+
+.chat-compose input {
+  flex: 1;
+  min-width: 0
+}
+
+.chat-compose button {
+  width: auto;
+  height: 84rpx;
+  padding: 0 25rpx
+}
+
+.help-screen {
+  padding-bottom: 150rpx
+}

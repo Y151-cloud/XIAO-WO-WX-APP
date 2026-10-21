@@ -1,37 +1,30 @@
-<view class="page">
-  <!-- 头像 -->
-  <view class="section">
-    <view class="card-box">
-      <van-cell-group>
-        <van-cell title="头像" is-link center bind:click="onChangeAvatar">
-          <image class="avatar-small" src="{{userInfo.avatarUrl || '/static/images/default-avatar.png'}}" mode="aspectFill" slot="value" />
-        </van-cell>
-      </van-cell-group>
-    </view>
+<view class="screen">
+  <view class="eyebrow">A LITTLE MORE ABOUT YOU</view>
+  <view class="page-title settings-title">这是你的小窝名片。</view>
+  <view class="profile-edit-avatar" bindtap="onChangeAvatar">
+    <image src="{{userInfo.avatarUrl || '/static/art/avatar.png'}}" mode="aspectFill" />
+    <view class="avatar-edit"><van-icon name="photograph" size="18" /></view>
   </view>
-
-  <!-- 基本信息 -->
-  <view class="section">
-    <view class="card-box">
-      <van-cell-group>
-        <van-cell title="昵称" value="{{userInfo.nickName || '未设置'}}" is-link bind:click="onEditNickname" />
-        <van-cell title="性别" value="{{genderText}}" is-link bind:click="onShowGender" />
-        <van-cell title="学校" value="{{userInfo.school || '未设置'}}" is-link bind:click="onEditSchool" />
-        <van-cell title="学号" value="{{userInfo.studentId || '未设置'}}" is-link bind:click="onEditStudentId" />
-        <van-cell title="个性签名" value="{{userInfo.signature || '这个人很懒，什么都没写'}}" is-link bind:click="onEditSignature" />
-      </van-cell-group>
-    </view>
+  <view class="avatar-hint">点击头像，换个新模样</view>
+  <view class="paper">
+    <view class="menu-row" bindtap="onEditNickname"><text class="menu-copy">昵称</text><text
+        class="profile-value">{{userInfo.nickName || '小窝同学'}}</text><van-icon name="arrow" size="12"
+        color="#b0bba0" /></view>
+    <view class="menu-row" bindtap="onShowGender"><text class="menu-copy">性别</text><text
+        class="profile-value">{{genderText}}</text><van-icon name="arrow" size="12"
+        color="#b0bba0" /></view>
+    <view class="menu-row" bindtap="onEditSchool"><text class="menu-copy">学校</text><text
+        class="profile-value">{{userInfo.school || '待填写'}}</text><van-icon name="arrow" size="12"
+        color="#b0bba0" /></view>
+    <view class="menu-row" bindtap="onEditStudentId"><text class="menu-copy">学号</text><text
+        class="profile-value">{{userInfo.studentId || '待填写'}}</text><van-icon name="arrow" size="12"
+        color="#b0bba0" /></view>
+    <view class="menu-row" bindtap="onEditSignature"><text class="menu-copy">签名</text><text
+        class="profile-value">{{userInfo.signature || '记录一点自己的样子'}}</text><van-icon name="arrow"
+        size="12" color="#b0bba0" /></view>
   </view>
-
-  <!-- 退出登录 -->
-  <view class="logout-btn" bindtap="onLogout">退出登录</view>
-
-  <!-- 性别选择 -->
-  <van-action-sheet
-    show="{{showGenderSheet}}"
-    actions="{{genderActions}}"
-    cancel-text="取消"
-    bind:close="onCloseGender"
-    bind:select="onSelectGender"
-  />
+  <view class="form-note profile-note">资料修改后会自动保存到本机。</view>
+  <van-action-sheet show="{{showGenderSheet}}" actions="{{genderActions}}"
+    bind:close="onCloseGender" bind:select="onSelectGender" cancel-text="取消"
+    bind:cancel="onCloseGender" round />
 </view>

@@ -1,11 +1,8 @@
 {
-  "navigationBarTitleText": "我的",
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "我的小窝",
+  "enablePullDownRefresh": true,
   "usingComponents": {
-    "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-icon": "@vant/weapp/icon/index",
-    "van-grid": "@vant/weapp/grid/index",
-    "van-grid-item": "@vant/weapp/grid-item/index"
+    "van-icon": "/vant/icon/index",
+    "post-card": "/components/post-card/index"
   }
 }

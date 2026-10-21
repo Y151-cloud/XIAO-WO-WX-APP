@@ -1,0 +1,22 @@
+<view class="screen">
+  <view class="eyebrow">DISCOVER SOMETHING GOOD</view>
+  <view class="page-title list-title">{{title}}</view>
+  <view class="page-subtitle">小小校园，总有与你有关的美好</view>
+  <view class="search"><van-icon name="search" size="19" color="#9ba78c" />
+    <input value="{{keyword}}" placeholder="搜索内容、话题或同学" placeholder-class="search-placeholder"
+      bindinput="input" bindconfirm="search" confirm-type="search" /><text class="search-text"
+      bindtap="search">搜索</text>
+  </view>
+  <view wx:if="{{error}}" class="error-box" bindtap="retry">{{error}} · 点击重试</view>
+  <post-card wx:for="{{posts}}" wx:key="id" post="{{item}}" bind:open="openPost" bind:change="onPostChange" />
+  <view wx:if="{{!loading && !posts.length && !error}}" class="empty">
+    <view class="empty-symbol"><van-icon name="notes-o" size="34" /></view>
+    <view class="empty-title">这里还空着，留给新的故事</view>
+    <view class="empty-note">{{keyword ? '试试其他关键词，或分享一条自己的动态' : '去发现、收藏或参与，让小窝慢慢丰富起来'}}</view>
+    <view class="secondary" bindtap="publish">发布第一条</view>
+  </view>
+  <view class="status">
+    {{loading ? '正在整理小窝…' : hasMore ? '继续上滑查看更多' : posts.length ? '已经看到这里的全部啦' : ''}}</view>
+  <view class="floating-publish list-publish" bindtap="publish"><van-icon name="plus" size="17" />发布
+  </view>
+</view>

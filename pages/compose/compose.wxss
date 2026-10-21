@@ -1,0 +1,144 @@
+.compose-title {
+  font-size: 36rpx;
+  margin-top: 20rpx
+}
+
+.page-subtitle {
+  margin-bottom: 32rpx
+}
+
+.type-picker {
+  font-size: 26rpx;
+  color: #869874
+}
+
+.type-picker .row {
+  gap: 15rpx;
+  color: #798a67
+}
+
+.content-label {
+  margin-top: 30rpx
+}
+
+.word-count {
+  text-align: right;
+  color: #b3bca5;
+  font-size: 20rpx;
+  padding-top: 12rpx
+}
+
+.upload-row {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 20rpx
+}
+
+.upload-image,
+.upload-add {
+  width: 134rpx;
+  height: 134rpx;
+  border-radius: 16rpx;
+  position: relative
+}
+
+.upload-image image {
+  width: 100%;
+  height: 100%;
+  border-radius: 16rpx
+}
+
+.remove-image {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  width: 38rpx;
+  height: 38rpx;
+  background: #c18e70;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35rpx;
+  font-size: 30rpx
+}
+
+.upload-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9rpx;
+  background: #f1f4e9;
+  border: 2rpx dashed #dce4cd;
+  color: #a3b18e;
+  font-size: 20rpx
+}
+
+.draft-button {
+  text-align: center;
+  font-size: 24rpx;
+  color: #a5b191;
+  padding: 30rpx
+}
+
+.anonymous-row {
+  padding: 26rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 27rpx;
+  color: #8a9b76
+}
+
+.toggle {
+  background: #d7ddce;
+  border-radius: 30rpx;
+  width: 82rpx;
+  padding: 5rpx
+}
+
+.toggle view {
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+  background: white
+}
+
+.toggle.on {
+  background: #9eaf86
+}
+
+.toggle.on view {
+  margin-left: 38rpx
+}
+
+.success-view {
+  padding: 80rpx 20rpx;
+  text-align: center
+}
+
+.success-symbol {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: #e6efdb;
+  color: #9aad81;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 32rpx
+}
+
+.success-title {
+  font-size: 36rpx;
+  color: #7a8f63;
+  line-height: 1.7
+}
+
+.success-view .form-note {
+  margin: 25rpx 0 50rpx
+}
+
+.success-view .secondary {
+  margin-top: 20rpx
+}

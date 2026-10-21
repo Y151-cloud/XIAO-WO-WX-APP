@@ -1,38 +1,143 @@
-.container {
-  background-color: #F5F5F5;
-  min-height: 100vh;
+.service-heading {
+  font-size: 46rpx;
+  line-height: 1.5;
+  margin-top: 18rpx
 }
 
-.tab-content {
-  padding: 24rpx;
-  min-height: 300rpx;
+.errand-card {
+  height: 340rpx;
+  background: #f3e8d3;
+  border: 1rpx solid #eee1c9;
+  border-radius: 24rpx;
+  overflow: hidden;
+  position: relative;
+  margin-top: 32rpx
 }
 
-.quick-entry {
+.errand-copy {
+  position: relative;
+  z-index: 2;
+  padding: 30rpx
+}
+
+.service-label {
+  font-size: 16rpx;
+  letter-spacing: 3rpx;
+  color: #b2976a
+}
+
+.errand-title {
+  font-size: 37rpx;
+  line-height: 1.5;
+  color: #887043;
+  font-weight: 600;
+  margin-top: 12rpx
+}
+
+.errand-note {
+  font-size: 21rpx;
+  color: #ad9872;
+  margin-top: 10rpx
+}
+
+.errand-button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10rpx;
+  background: #c99e65;
+  color: #fff;
+  border-radius: 30rpx;
+  padding: 12rpx 21rpx;
+  font-size: 22rpx;
+  width: 230rpx;
+  margin-top: 24rpx
+}
+
+.errand-art {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%
+}
+
+.service-grid {
+  display: flex;
+  gap: 20rpx
+}
+
+.service-tile {
   background: #fff;
-  border-radius: 16rpx;
-  padding: 32rpx 24rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  border: 1rpx solid #eaf0df;
+  border-radius: 24rpx;
+  flex: 1;
+  padding: 28rpx
 }
-.quick-left {
+
+.service-icon {
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 23rpx;
   display: flex;
   align-items: center;
+  justify-content: center
 }
-.quick-info {
-  margin-left: 20rpx;
-  display: flex;
-  flex-direction: column;
+
+.green {
+  background: #eef2e5;
+  color: #9aab7b
 }
-.quick-title {
+
+.orange {
+  background: #f8ecdf;
+  color: #c69869
+}
+
+.tile-title {
   font-size: 30rpx;
   font-weight: 600;
-  color: #333;
+  margin-top: 22rpx
 }
-.quick-desc {
-  font-size: 24rpx;
-  color: #999;
-  margin-top: 6rpx;
+
+.tile-note {
+  font-size: 20rpx;
+  color: #a4ae97;
+  margin-top: 8rpx
+}
+
+.tile-link {
+  font-size: 21rpx;
+  color: #a1af89;
+  margin-top: 25rpx
+}
+
+.convenience {
+  margin-top: 22rpx
+}
+
+.small-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14rpx;
+  padding: 36rpx;
+  color: #8f9e7d;
+  font-size: 25rpx
+}
+
+.small-empty-note {
+  font-size: 21rpx;
+  color: #aeb7a1
+}
+
+.service-foot {
+  font-size: 21rpx;
+  color: #b0b9a1;
+  text-align: center;
+  margin-top: 32rpx
+}
+
+.order-preview {
+  padding: 26rpx;
+  font-size: 25rpx
 }

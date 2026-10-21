@@ -1,14 +1,29 @@
-<view class="container">
-  <!-- 标签栏切换 -->
-  <van-tabs active="{{ activeTab }}" color="#FF6B35" bind:change="onTabChange" class="tabs-rounded">
-    <van-tab title="表白墙">
-      <!-- 表白墙内容占位 -->
-    </van-tab>
-    <van-tab title="树洞">
-      <!-- 树洞内容占位 -->
-    </van-tab>
-    <van-tab title="校园论坛">
-      <!-- 校园论坛内容占位 -->
-    </van-tab>
-  </van-tabs>
+<view class="screen tab-screen">
+  <view class="eyebrow">CONNECT WITH YOUR CAMPUS</view>
+  <view class="page-title">同一个校园，<view class="line-break"></view>好多种共鸣。</view>
+  <view class="page-subtitle">分享心事，也遇见懂你的同学</view>
+  <view class="community-doors">
+    <view class="door pink-door" data-type="confession" data-title="表白墙" bindtap="topic">
+      <view class="door-symbol">♡</view><text class="door-title">表白墙</text><text
+        class="door-note">把心动说给你听</text>
+      <view class="door-arrow">↗</view>
+    </view>
+    <view class="door green-door" data-type="treehole" data-title="校园树洞" bindtap="topic">
+      <view class="door-symbol">♧</view><text class="door-title">小小树洞</text><text
+        class="door-note">每一种情绪都值得被听见</text>
+      <view class="door-arrow">↗</view>
+    </view>
+  </view>
+  <view class="section-head"><text class="section-title">窝友们在聊</text>
+    <view class="section-more" bindtap="changeSort"><van-icon name="exchange"
+        size="13" />{{sort === 'hot' ? '热门优先' : '最新发布'}}</view>
+  </view>
+  <view class="tabs">
+    <view wx:for="{{tabs}}" wx:key="type" class="tab {{active === index ? 'active' : ''}}"
+      data-index="{{index}}" bindtap="changeTab">{{item.name}}</view>
+  </view>
+  <view wx:if="{{error}}" class="error-box" bindtap="load">{{error}} · 点击重试</view>
+  <post-card wx:for="{{posts}}" wx:key="id" post="{{item}}" bind:open="openPost" bind:change="onPostChange" />
+  <view class="status">{{loading ? '正在寻找共鸣…' : '每一个小小的声音，都值得被听见'}}</view>
+  <view class="floating-publish" bindtap="publish"><van-icon name="edit" size="18" />写点什么</view>
 </view>

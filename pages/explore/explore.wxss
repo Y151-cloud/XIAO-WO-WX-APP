@@ -1,0 +1,17 @@
+.list-title {
+  margin-top: 16rpx;
+  font-size: 44rpx
+}
+
+.search-text {
+  font-size: 23rpx;
+  color: #91a278
+}
+
+.list-publish {
+  bottom: calc(42rpx + env(safe-area-inset-bottom))
+}
+
+.screen {
+  padding-bottom: 180rpx
+}

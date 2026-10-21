@@ -1,9 +1,10 @@
 {
   "name": "xiaowo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "校窝 - 小窝虽小，装得下整个校园",
   "scripts": {
-    "postinstall": "node scripts/fix-vant-font.js"
+    "postinstall": "node scripts/fix-vant-font.js",
+    "test": "node scripts/test-mock.js && node scripts/check-ui.js && node scripts/check-templates.js"
   },
   "dependencies": {
     "@vant/weapp": "^1.11.0"

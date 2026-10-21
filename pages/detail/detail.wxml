@@ -1,0 +1,69 @@
+<view class="screen detail-screen">
+  <view wx:if="{{loading}}" class="status">正在打开这段校园故事…</view>
+  <view wx:elif="{{error}}" class="empty">
+    <view class="empty-title">{{error}}</view>
+    <view class="secondary" bindtap="load">重新加载</view>
+  </view>
+  <block wx:elif="{{post}}">
+    <view class="paper detail-card">
+      <view class="row">
+        <view class="avatar">{{post.avatar}}</view>
+        <view class="detail-author"><text>{{post.author}}</text><text
+            class="detail-meta">{{post.time}} · {{post.location}}</text></view><text
+          class="pill">{{post.tag}}</text>
+      </view>
+      <view class="detail-title">{{post.title}}</view>
+      <view wx:if="{{post.price}}" class="detail-price">¥ {{post.price}}<text
+          wx:if="{{post.original}}">原价 ¥{{post.original}}</text></view>
+      <view class="detail-content">{{post.content}}</view>
+      <image wx:for="{{post.images}}" wx:key="*this" class="detail-image" src="{{item}}"
+        mode="widthFix" data-src="{{item}}" bindtap="preview" />
+      <view class="detail-footer row between"><text>{{post.views}} 次浏览</text>
+        <view class="row detail-actions">
+          <view class="row detail-like {{post.liked ? 'theme-color' : ''}}" bindtap="like"><van-icon
+              name="{{post.liked ? 'good-job' : 'good-job-o'}}" size="20" /> {{post.likes}}</view>
+          <view class="row detail-collect {{post.collected ? 'theme-color' : ''}}" bindtap="collect"><van-icon
+              name="{{post.collected ? 'star' : 'star-o'}}" size="20" />
+            {{post.collected ? '已收藏' : '收藏'}}</view>
+        </view>
+      </view>
+      <view wx:if="{{post.isMine}}" class="delete-link" bindtap="remove">删除我的发布</view>
+    </view>
+    <view wx:if="{{post.type === 'activity'}}" class="paper action-card">
+      <view>
+        <view class="action-card-title">一起收藏这段校园时光</view>
+        <view class="form-note">{{post.activityTime || '活动时间见正文'}} · 校园活动</view>
+      </view>
+      <button class="primary join-button" disabled="{{actionBusy}}" bindtap="join">
+        {{post.joined ? '已报名 ✓' : '我要参加'}}</button>
+    </view>
+    <view
+      wx:if="{{post.type === 'idle' || post.type === 'buy' || post.type === 'inherit' || post.type === 'carpool'}}"
+      class="paper action-card">
+      <view>
+        <view class="action-card-title">同校相遇，让好物接棒</view>
+        <view class="form-note">先聊清楚，再约当面验货</view>
+      </view>
+      <button class="primary join-button" bindtap="contact">联系同学</button>
+    </view>
+    <view class="section-head"><text class="section-title">窝友的回应 <text class="comment-count">{{comments.length}}</text></text><text class="eyebrow">KIND WORDS MATTER</text></view>
+    <view class="paper comment-card">
+      <view wx:for="{{comments}}" wx:key="id" class="comment-item">
+        <view class="comment-avatar">{{item.avatar}}</view>
+        <view class="comment-copy">
+          <view class="row between"><text class="comment-name">{{item.author}}</text><text
+              class="comment-time">{{item.time}}</text></view>
+          <view class="comment-content">{{item.content}}</view>
+        </view>
+      </view>
+      <view wx:if="{{!comments.length}}" class="empty-note comment-empty">还没有回应，留下第一句温暖的话吧。</view>
+    </view>
+  </block>
+</view>
+<view wx:if="{{post}}" class="comment-bar">
+  <input value="{{comment}}" maxlength="300" placeholder="友善的交流，从一句回应开始…"
+    placeholder-class="search-placeholder" bindinput="input" bindconfirm="send"
+    confirm-type="send" />
+  <button class="comment-send" loading="{{sending}}" disabled="{{sending || !comment}}"
+    bindtap="send">发送</button>
+</view>

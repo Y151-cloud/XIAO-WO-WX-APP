@@ -1,0 +1,125 @@
+.post-card {
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  margin-bottom: 20rpx;
+  border: 1rpx solid #eeeae4
+}
+
+.post-author {
+  display: flex;
+  align-items: center
+}
+
+.avatar {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 24rpx;
+  background: #fbe8d7;
+  color: #ac6a3b;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600
+}
+
+.avatar.green {
+  background: #e4ede5;
+  color: #62806c
+}
+
+.avatar.blue {
+  background: #e3eaf3;
+  color: #6885a5
+}
+
+.avatar.pink {
+  background: #f3e4e6;
+  color: #b47f88
+}
+
+.author-copy {
+  flex: 1;
+  padding-left: 18rpx;
+  display: flex;
+  flex-direction: column
+}
+
+.author-name {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #343a36
+}
+
+.post-time {
+  font-size: 21rpx;
+  color: #aaa9a2;
+  margin-top: 7rpx
+}
+
+.post-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-top: 23rpx;
+  color: #303832
+}
+
+.post-content {
+  display: block;
+  max-height: 3.6em;
+  font-size: 26rpx;
+  line-height: 1.8;
+  color: #878b83;
+  overflow: hidden;
+  margin-top: 6rpx
+}
+
+.post-images {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 22rpx
+}
+
+.post-image {
+  height: 240rpx;
+  flex: 1;
+  min-width: 0;
+  border-radius: 16rpx;
+  background: #f0eee7
+}
+
+.single .post-image {
+  height: 280rpx
+}
+
+.post-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25rpx
+}
+
+.topic {
+  color: #bb8a60;
+  font-size: 22rpx
+}
+
+.post-counts {
+  display: flex;
+  gap: 30rpx;
+  color: #a8aaa4
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  font-size: 23rpx;
+  padding: 8rpx 0 8rpx 14rpx
+}
+
+.liked {
+  color: #e67e50
+}
